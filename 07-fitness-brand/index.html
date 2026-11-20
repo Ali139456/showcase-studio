@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FORGE Athletic Club — Built, not born</title>
+  <meta name="description" content="FORGE is a coaching-led strength and conditioning club in Brooklyn. Five programs, eighty-six classes a week, open around the clock.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%230b0b0b'/%3E%3Cpath d='M11 7h13l-2 5h-7l-1 3h6l-2 5h-6l-2 5H5z' fill='%23c6ff3d'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600&family=Barlow+Condensed:ital,wght@0,500;0,600;0,700;1,600;1,700;1,800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="is-loading">
+
+  <div class="loader" id="loader" aria-hidden="true">
+    <div class="loader-count"><span id="loaderNum">0</span></div>
+    <div class="loader-word">FORGE</div>
+    <div class="loader-bar"><i></i></div>
+  </div>
+
+  <header class="header" id="header">
+    <a class="logo" href="#top" aria-label="FORGE home">FORGE<i></i></a>
+    <nav class="nav" aria-label="Primary">
+      <a href="#programs">Programs</a>
+      <a href="#schedule">Schedule</a>
+      <a href="#coaches">Coaches</a>
+      <a href="#membership">Membership</a>
+      <a href="#results">Results</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <div class="header-right">
+      <button class="btn btn-lime btn-sm" data-join>Free trial<i data-lucide="arrow-up-right"></i></button>
+      <button class="burger" id="burger" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    </div>
+  </header>
+
+  <div class="mnav" id="mnav" aria-hidden="true">
+    <nav><a href="#programs">Programs</a><a href="#schedule">Schedule</a><a href="#coaches">Coaches</a><a href="#membership">Membership</a><a href="#results">Results</a><a href="#contact">Contact</a></nav>
+    <button class="btn btn-lime" data-join>Start 7-day free trial<i data-lucide="arrow-up-right"></i></button>
+  </div>
+
+  <main id="top">
+    <!-- Hero -->
+    <section class="hero" id="hero">
+      <div class="hero-media"><img src="assets/hero.jpg" alt="Athlete loading a barbell under dramatic light" id="heroImg"></div>
+      <div class="hero-inner">
+        <p class="tag hero-tag"><i></i>Brooklyn · Open 24/7</p>
+        <h1 class="hero-title">
+          <span class="row"><span>Built,</span></span>
+          <span class="row"><span><em>not</em></span></span>
+          <span class="row"><span>born<b>.</b></span></span>
+        </h1>
+        <div class="hero-foot">
+          <p>A coaching-led strength and conditioning club. No mirrors, no machines you queue for — just good programming, heavy iron and people who notice when you don't show up.</p>
+          <div class="hero-cta">
+            <button class="btn btn-lime" data-join>Start 7-day trial<i data-lucide="arrow-up-right"></i></button>
+            <a class="btn btn-ghost" href="#programs">See programs</a>
+          </div>
+        </div>
+      </div>
+      <div class="hero-badge" aria-hidden="true">
+        <svg viewBox="0 0 200 200"><defs><path id="circ" d="M100,100 m-78,0 a78,78 0 1,1 156,0 a78,78 0 1,1 -156,0" /></defs><text><textPath href="#circ">FIRST WEEK FREE • NO CONTRACT • FIRST WEEK FREE • NO CONTRACT •</textPath></text></svg>
+        <i data-lucide="arrow-down"></i>
+      </div>
+      <ul class="hero-stats">
+        <li><b><span data-count="12400" data-sep>0</span></b><span>members</span></li>
+        <li><b><span data-count="86">0</span></b><span>classes a week</span></li>
+        <li><b><span data-count="14">0</span></b><span>full-time coaches</span></li>
+        <li><b>24/7</b><span>floor access</span></li>
+      </ul>
+    </section>
+
+    <!-- Marquee -->
+    <section class="bands" aria-hidden="true">
+      <div class="band band-a"><div class="band-track" data-speed="1"></div></div>
+      <div class="band band-b"><div class="band-track" data-speed="-1"></div></div>
+    </section>
+
+    <!-- Manifesto -->
+    <section class="manifesto" id="about">
+      <div class="wrap manifesto-grid">
+        <div class="manifesto-copy">
+          <p class="tag" data-in><i></i>The club</p>
+          <h2 class="h-xl" data-lines>Strong is a skill.<br>We <em>coach</em> it.</h2>
+          <p class="lede" data-in>FORGE opened in a former ironworks in Gowanus in 2014 with six barbells and one rule: every member trains to a plan. Eleven years on the plan is better, the room is bigger, and the rule has not changed.</p>
+          <ul class="facts" data-in>
+            <li><b><span data-count="22000" data-sep>0</span></b><span>square feet of floor</span></li>
+            <li><b><span data-count="48">0</span></b><span>lifting platforms</span></li>
+            <li><b><span data-count="11">0</span></b><span>years in Gowanus</span></li>
+          </ul>
+        </div>
+        <div class="manifesto-media">
+          <figure class="mm mm-a" data-wipe><img src="assets/about-rack.jpg" alt="Row of squat racks on the FORGE training floor" loading="lazy"></figure>
+          <figure class="mm mm-b" data-wipe><img src="assets/about-floor.jpg" alt="Open training floor with sleds and turf" loading="lazy"></figure>
+          <span class="mm-note">Est. 2014<br>Gowanus, BK</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Programs -->
+    <section class="programs" id="programs">
+      <div class="wrap">
+        <header class="sec-head">
+          <div><p class="tag" data-in><i></i>Programs</p><h2 class="h-xl" data-lines>Five ways to <em>work.</em></h2></div>
+          <p class="sec-note" data-in>Every program runs in twelve-week blocks with testing at the start and the end, so progress is measured rather than felt.</p>
+        </header>
+      </div>
+      <div class="panels" id="panels"></div>
+    </section>
+
+    <!-- Schedule -->
+    <section class="schedule" id="schedule">
+      <div class="wrap">
+        <header class="sec-head">
+          <div><p class="tag" data-in><i></i>Schedule</p><h2 class="h-xl" data-lines>This week on <em>the floor.</em></h2></div>
+          <div class="sched-filter" data-in>
+            <label for="schedProg">Program</label>
+            <select id="schedProg"></select>
+          </div>
+        </header>
+        <div class="days" id="days" role="tablist"></div>
+        <div class="classes" id="classes"></div>
+      </div>
+    </section>
+
+    <!-- Coaches -->
+    <section class="coaches" id="coaches">
+      <div class="wrap">
+        <header class="sec-head">
+          <div><p class="tag" data-in><i></i>Coaches</p><h2 class="h-xl" data-lines>People who <em>notice.</em></h2></div>
+          <p class="sec-note" data-in>Fourteen full-time coaches. No sales staff, no commission — the only target they carry is yours.</p>
+        </header>
+        <div class="coach-grid" id="coachGrid"></div>
+      </div>
+    </section>
+
+    <!-- Membership -->
+    <section class="membership" id="membership">
+      <div class="wrap">
+        <header class="sec-head">
+          <div><p class="tag" data-in><i></i>Membership</p><h2 class="h-xl" data-lines>Pick your <em>weight.</em></h2></div>
+          <div class="bill" id="bill" data-in>
+            <button class="is-active" data-bill="monthly">Monthly</button>
+            <button data-bill="annual">Annual <span>2 months free</span></button>
+          </div>
+        </header>
+        <div class="plans" id="plans"></div>
+        <p class="plans-note" data-in><i data-lucide="shield-check"></i>Every plan starts with a free week. Cancel any time with thirty days' notice — no joining fee, no small print.</p>
+      </div>
+    </section>
+
+    <!-- Results -->
+    <section class="results" id="results">
+      <div class="wrap">
+        <header class="sec-head">
+          <div><p class="tag" data-in><i></i>Results</p><h2 class="h-xl" data-lines>Proof, not <em>promises.</em></h2></div>
+          <div class="tabs" id="resultTabs" data-in></div>
+        </header>
+        <div class="result-grid" id="resultGrid"></div>
+      </div>
+    </section>
+
+    <!-- Voices -->
+    <section class="voices" id="voices">
+      <div class="wrap voices-grid">
+        <div class="voices-side">
+          <p class="tag" data-in><i></i>Members</p>
+          <div class="voice-nav" id="voiceNav"></div>
+          <div class="arrows"><button id="voicePrev" aria-label="Previous"><i data-lucide="arrow-left"></i></button><button id="voiceNext" aria-label="Next"><i data-lucide="arrow-right"></i></button></div>
+        </div>
+        <div class="voice" id="voice" data-in>
+          <i data-lucide="quote" class="voice-mark"></i>
+          <blockquote id="voiceQuote"></blockquote>
+          <p class="voice-who"><b id="voiceName"></b><span id="voiceMeta"></span></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section class="contact" id="contact">
+      <div class="contact-media"><img src="assets/cta.jpg" alt="" loading="lazy" id="ctaImg"></div>
+      <div class="wrap contact-grid">
+        <div class="contact-copy">
+          <p class="tag" data-in><i></i>Visit</p>
+          <h2 class="h-xl" data-lines>Come lift<br>with <em>us.</em></h2>
+          <ul class="contact-list" data-in>
+            <li><i data-lucide="map-pin"></i><div><b>214 Third Street</b><span>Gowanus, Brooklyn, NY 11215</span></div></li>
+            <li><i data-lucide="clock"></i><div><b id="openState">Open now</b><span>Floor 24/7 · Staffed 5am – 10pm</span></div></li>
+            <li><i data-lucide="phone"></i><div><a href="tel:+17185550119"><b>+1 718 555 0119</b></a><span>Front desk</span></div></li>
+            <li><i data-lucide="mail"></i><div><a href="mailto:train@forgeathletic.club"><b>train@forgeathletic.club</b></a><span>We reply within a day</span></div></li>
+          </ul>
+        </div>
+        <form class="contact-form" id="contactForm" novalidate data-in>
+          <h3>Book a tour</h3>
+          <p>Twenty minutes with a coach. Bring kit if you want to train after.</p>
+          <div class="f-row">
+            <label class="f"><span>Name</span><input name="name" autocomplete="name" placeholder="Your name"><small></small></label>
+            <label class="f"><span>Email</span><input name="email" type="email" autocomplete="email" placeholder="you@email.com"><small></small></label>
+          </div>
+          <label class="f"><span>Main goal</span>
+            <select name="goal"><option>Get stronger</option><option>Lose body fat</option><option>Improve conditioning</option><option>Move without pain</option><option>Train for an event</option></select>
+          </label>
+          <label class="f"><span>Anything we should know? <em>(optional)</em></span><textarea name="note" placeholder="Injuries, experience, preferred times"></textarea></label>
+          <button class="btn btn-lime btn-block" type="submit">Request a tour<i data-lucide="arrow-up-right"></i></button>
+          <p class="f-ok" id="contactOk" role="status"></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap">
+      <div class="footer-top">
+        <nav aria-label="Train"><h4>Train</h4><a href="#programs">Programs</a><a href="#schedule">Schedule</a><a href="#coaches">Coaches</a><a href="#results">Results</a></nav>
+        <nav aria-label="Join"><h4>Join</h4><a href="#membership">Membership</a><button data-join>Free trial</button><a href="#contact">Book a tour</a><a href="mailto:teams@forgeathletic.club">Corporate</a></nav>
+        <div><h4>Staffed hours</h4><p>Mon – Fri · 5am – 10pm</p><p>Sat – Sun · 7am – 8pm</p><p>Member access · 24/7</p></div>
+        <div><h4>Follow</h4><a href="https://www.instagram.com/" target="_blank" rel="noopener">Instagram</a><a href="https://www.youtube.com/" target="_blank" rel="noopener">YouTube</a><a href="https://www.strava.com/" target="_blank" rel="noopener">Strava</a></div>
+      </div>
+      <div class="footer-word" aria-hidden="true">FORGE</div>
+      <div class="footer-bottom"><span>© 2026 FORGE Athletic Club LLC</span><span>214 Third Street, Brooklyn · Photography via Unsplash</span><a href="#top">Back to top ↑</a></div>
+    </div>
+  </footer>
+
+  <!-- Join modal -->
+  <div class="modal" id="joinModal" aria-hidden="true">
+    <div class="modal-scrim" data-close></div>
+    <div class="dialog" role="dialog" aria-modal="true" aria-labelledby="joinTitle">
+      <button class="modal-x" data-close aria-label="Close"><i data-lucide="x"></i></button>
+      <div id="joinBody"></div>
+    </div>
+  </div>
+
+  <!-- Lightbox -->
+  <div class="modal lightbox" id="lightbox" aria-hidden="true">
+    <div class="modal-scrim" data-close></div>
+    <div class="lb" role="dialog" aria-modal="true" aria-label="Member result">
+      <button class="modal-x" data-close aria-label="Close"><i data-lucide="x"></i></button>
+      <div class="lb-media"><img id="lbImg" src="assets/tf-1.jpg" alt=""></div>
+      <div class="lb-info" id="lbInfo"></div>
+      <div class="lb-nav"><button id="lbPrev" aria-label="Previous result"><i data-lucide="arrow-left"></i></button><span id="lbCount"></span><button id="lbNext" aria-label="Next result"><i data-lucide="arrow-right"></i></button></div>
+    </div>
+  </div>
+
+  <div class="toast" id="toast" role="status"></div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://unpkg.com/lucide@0.469.0/dist/umd/lucide.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

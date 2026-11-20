@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Axiom — Every answer your company already knows</title>
+  <meta name="description" content="Axiom connects to the tools your team already uses and turns scattered knowledge into cited answers and automated workflows.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='9' fill='%2306070c'/%3E%3Cpath d='M16 6 26 25H6z' fill='none' stroke='%237b5cff' stroke-width='2.6' stroke-linejoin='round'/%3E%3Ccircle cx='16' cy='18.5' r='2.6' fill='%233ad6ff'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600&family=Sora:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="is-loading">
+
+  <div class="loader" id="loader" aria-hidden="true">
+    <svg viewBox="0 0 64 64"><path class="loader-tri" d="M32 10 54 52H10z" /><circle class="loader-dot" cx="32" cy="38" r="5" /></svg>
+  </div>
+
+  <!-- Navigation -->
+  <header class="nav" id="nav">
+    <a class="logo" href="#top" aria-label="Axiom home">
+      <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 5 27 26H5z" /><circle cx="16" cy="19" r="2.8" /></svg>
+      <span>Axiom</span>
+    </a>
+    <nav class="nav-links" id="navLinks" aria-label="Primary">
+      <a href="#features">Product</a>
+      <a href="#showcase">Live demo</a>
+      <a href="#workflow">How it works</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+    <div class="nav-cta">
+      <button class="nav-signin" data-modal="signin">Sign in</button>
+      <button class="btn btn-light btn-sm" data-modal="start">Start free</button>
+      <button class="nav-burger" id="burger" aria-label="Open menu" aria-expanded="false"><span></span><span></span></button>
+    </div>
+  </header>
+
+  <main id="top">
+    <!-- Hero -->
+    <section class="hero" id="hero">
+      <canvas class="hero-canvas" id="orb" aria-hidden="true"></canvas>
+      <div class="hero-fallback" aria-hidden="true"></div>
+      <div class="hero-grid" aria-hidden="true"></div>
+
+      <div class="wrap hero-inner">
+        <a class="pill" href="#showcase" data-reveal><span class="pill-tag">New</span>Agents can now take action in 40+ tools<i data-lucide="arrow-right"></i></a>
+        <h1 class="hero-title" id="heroTitle">
+          <span class="hl"><span>Every answer your</span></span>
+          <span class="hl"><span>company <em class="grad">already knows.</em></span></span>
+        </h1>
+        <p class="hero-sub" data-reveal>Axiom connects to the tools your team already works in and turns scattered documents, threads and tickets into cited answers — and workflows that run themselves.</p>
+
+        <div class="prompt" id="prompt" data-reveal>
+          <div class="prompt-row">
+            <i data-lucide="sparkles"></i>
+            <p class="prompt-text"><span id="typed"></span><span class="caret"></span></p>
+            <button class="btn btn-grad" id="heroAsk">Ask Axiom<i data-lucide="arrow-up"></i></button>
+          </div>
+          <div class="prompt-src"><span>Searching</span><em>Notion</em><em>Slack</em><em>Drive</em><em>Linear</em><em>Zendesk</em><em class="more">+ 36 more</em></div>
+        </div>
+
+        <div class="hero-actions" data-reveal>
+          <button class="btn btn-light" data-modal="start">Start free<i data-lucide="arrow-right"></i></button>
+          <button class="btn btn-line" id="tourBtn"><i data-lucide="play"></i>Watch the 30-second tour</button>
+        </div>
+        <ul class="hero-trust" data-reveal>
+          <li><i data-lucide="shield-check"></i>SOC 2 Type II</li>
+          <li><i data-lucide="lock"></i>Never trained on your data</li>
+          <li><i data-lucide="timer"></i>Live in five minutes</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Logos -->
+    <section class="logos" aria-label="Customers">
+      <p>Trusted by 4,200 teams who would rather ask than search</p>
+      <div class="marquee">
+        <div class="marquee-track" id="logoTrack">
+          <span><i data-lucide="hexagon"></i>Northwind</span>
+          <span><i data-lucide="triangle"></i>Kestrel</span>
+          <span><i data-lucide="circle-dot"></i>Lumen&nbsp;Health</span>
+          <span><i data-lucide="command"></i>Parallel</span>
+          <span><i data-lucide="aperture"></i>Quanta</span>
+          <span><i data-lucide="mountain"></i>Oakline</span>
+          <span><i data-lucide="orbit"></i>Meridian</span>
+          <span><i data-lucide="waves"></i>Tidewater</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Features -->
+    <section class="section" id="features">
+      <div class="wrap">
+        <header class="sec-head">
+          <p class="eyebrow" data-reveal>Product</p>
+          <h2 class="sec-title" data-split>One layer of intelligence across <em class="grad">everything you've written down.</em></h2>
+        </header>
+
+        <div class="bento">
+          <article class="cell cell-a" data-reveal>
+            <div class="cell-copy">
+              <h3>Answers with receipts</h3>
+              <p>Every sentence links to the passage it came from. If Axiom can't find it in your workspace, it says so instead of guessing.</p>
+            </div>
+            <div class="receipt">
+              <div class="receipt-q"><i data-lucide="user-round"></i>Can annual customers get a pro-rated refund?</div>
+              <div class="receipt-a">
+                <p>Yes. Annual plans are refunded pro rata within <mark>60 days of renewal</mark><sup>1</sup>. After that, credit is applied to the next cycle<sup>2</sup> unless Finance approves an exception<sup>3</sup>.</p>
+                <div class="receipt-src">
+                  <span><b>1</b><i data-lucide="file-text"></i>Refund Policy v4.2</span>
+                  <span><b>2</b><i data-lucide="message-square"></i>#support-leads</span>
+                  <span><b>3</b><i data-lucide="folder"></i>Finance memo, Q3</span>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article class="cell cell-b" data-reveal>
+            <div class="cell-copy">
+              <h3>Forty connectors, zero migration</h3>
+              <p>Leave documents where they live. Axiom indexes in place and mirrors every permission.</p>
+            </div>
+            <div class="hub" aria-hidden="true">
+              <span class="hub-ring"></span><span class="hub-ring hub-ring-2"></span>
+              <span class="hub-core"><svg viewBox="0 0 32 32"><path d="M16 5 27 26H5z" /><circle cx="16" cy="19" r="2.8" /></svg></span>
+              <span class="hub-node" style="--a:0deg"><i data-lucide="database"></i></span>
+              <span class="hub-node" style="--a:60deg"><i data-lucide="mail"></i></span>
+              <span class="hub-node" style="--a:120deg"><i data-lucide="file-text"></i></span>
+              <span class="hub-node" style="--a:180deg"><i data-lucide="message-square"></i></span>
+              <span class="hub-node" style="--a:240deg"><i data-lucide="calendar"></i></span>
+              <span class="hub-node" style="--a:300deg"><i data-lucide="cloud"></i></span>
+            </div>
+          </article>
+
+          <article class="cell cell-c" data-reveal>
+            <div class="cell-copy">
+              <h3>Agents that finish the job</h3>
+              <p>Hand off the follow-through: draft the reply, file the ticket, update the record.</p>
+            </div>
+            <ul class="steps-mini" id="stepsMini">
+              <li><i data-lucide="check"></i>Classified as billing · urgent</li>
+              <li><i data-lucide="check"></i>Drafted reply with policy citation</li>
+              <li><i data-lucide="check"></i>Opened FIN-2291 in Linear</li>
+            </ul>
+          </article>
+
+          <article class="cell cell-d" data-reveal>
+            <div class="cell-copy">
+              <h3>Fast enough to think with</h3>
+              <p>Median time to first token across 48 million indexed documents.</p>
+            </div>
+            <div class="speed"><b><span data-count="420">0</span><small>ms</small></b>
+              <div class="speed-bars" aria-hidden="true"><i style="--h:42%"></i><i style="--h:58%"></i><i style="--h:36%"></i><i style="--h:64%"></i><i style="--h:48%"></i><i style="--h:30%"></i><i style="--h:52%"></i><i style="--h:40%"></i><i style="--h:34%"></i><i style="--h:46%"></i><i style="--h:28%"></i><i style="--h:38%"></i></div>
+            </div>
+          </article>
+
+          <article class="cell cell-e" data-reveal>
+            <div class="cell-copy">
+              <h3>Private by default</h3>
+              <p>Your data is never used for training and never leaves your region.</p>
+            </div>
+            <ul class="badges">
+              <li><i data-lucide="shield-check"></i>SOC 2 Type II</li>
+              <li><i data-lucide="key-round"></i>SSO &amp; SAML</li>
+              <li><i data-lucide="users"></i>SCIM</li>
+              <li><i data-lucide="globe"></i>EU residency</li>
+              <li><i data-lucide="file-lock-2"></i>HIPAA</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Showcase -->
+    <section class="section showcase" id="showcase">
+      <div class="wrap">
+        <header class="sec-head sec-head-center">
+          <p class="eyebrow" data-reveal>Live demo</p>
+          <h2 class="sec-title" data-split>Don't take our word for it. <em class="grad">Try it.</em></h2>
+          <div class="tabs" id="demoTabs" role="tablist" data-reveal>
+            <span class="tabs-glider" id="tabsGlider"></span>
+            <button class="is-active" role="tab" data-tab="ask"><i data-lucide="message-circle-question"></i>Ask</button>
+            <button role="tab" data-tab="automate"><i data-lucide="workflow"></i>Automate</button>
+            <button role="tab" data-tab="analyze"><i data-lucide="chart-column"></i>Analyze</button>
+          </div>
+        </header>
+
+        <div class="app" id="app" data-reveal>
+          <div class="app-bar">
+            <span class="app-dots"><i></i><i></i><i></i></span>
+            <span class="app-url"><i data-lucide="lock"></i>app.axiom.ai/<b id="appPath">ask</b></span>
+            <span class="app-live"><i></i>Demo workspace</span>
+          </div>
+
+          <!-- Ask -->
+          <div class="pane is-active" data-pane="ask">
+            <aside class="ask-side">
+              <p class="side-label">Try a question</p>
+              <div class="ask-chips" id="askChips"></div>
+              <p class="side-label">Connected</p>
+              <ul class="ask-sources">
+                <li><i data-lucide="file-text"></i>Notion<span>12,480</span></li>
+                <li><i data-lucide="message-square"></i>Slack<span>31,902</span></li>
+                <li><i data-lucide="folder"></i>Drive<span>3,116</span></li>
+                <li><i data-lucide="ticket"></i>Zendesk<span>712</span></li>
+              </ul>
+            </aside>
+            <div class="ask-main">
+              <div class="chat" id="chat"></div>
+              <form class="ask-form" id="askForm">
+                <input id="askInput" type="text" placeholder="Ask anything about the demo workspace…" autocomplete="off" aria-label="Your question">
+                <button class="btn btn-grad btn-icon" type="submit" aria-label="Send"><i data-lucide="arrow-up"></i></button>
+              </form>
+            </div>
+          </div>
+
+          <!-- Automate -->
+          <div class="pane" data-pane="automate">
+            <div class="flow">
+              <div class="flow-head"><div><h3>Escalate urgent tickets</h3><p>Runs whenever a new ticket arrives in Zendesk.</p></div><button class="btn btn-light btn-sm" id="runFlow"><i data-lucide="play"></i><span>Run test</span></button></div>
+              <ol class="flow-steps" id="flowSteps"></ol>
+            </div>
+            <div class="console">
+              <div class="console-head"><span><i data-lucide="terminal"></i>Run log</span><em id="runState">Idle</em></div>
+              <div class="console-body" id="consoleBody"><p class="dim">Press “Run test” to execute the workflow against a sample ticket.</p></div>
+            </div>
+          </div>
+
+          <!-- Analyze -->
+          <div class="pane" data-pane="analyze">
+            <div class="an-head">
+              <div><p class="side-label">Support · last 8 weeks</p><h3 id="anTitle"></h3></div>
+              <div class="an-seg" id="anSeg"></div>
+            </div>
+            <div class="an-body">
+              <div class="an-kpi"><b id="anValue"></b><span id="anDelta"></span><p id="anNote"></p></div>
+              <div class="an-chart" id="anChart"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Workflow -->
+    <section class="section" id="workflow">
+      <div class="wrap work">
+        <div class="work-intro">
+          <p class="eyebrow" data-reveal>How it works</p>
+          <h2 class="sec-title" data-split>From sign-up to first answer in <em class="grad">an afternoon.</em></h2>
+          <p class="work-lede" data-reveal>No data warehouse project. No six-week rollout. Connect, ask, and let the useful patterns turn into workflows.</p>
+          <button class="btn btn-line" data-modal="demo" data-reveal>Book a walkthrough<i data-lucide="arrow-right"></i></button>
+        </div>
+        <div class="work-steps" id="workSteps">
+          <span class="work-line"><i id="workLine"></i></span>
+          <ol>
+          <li class="work-step">
+            <span class="work-num">01</span>
+            <div><h3>Connect your tools</h3><p>Authorise Notion, Slack, Drive and 40 more with OAuth. Axiom mirrors existing permissions, so nobody sees what they shouldn't.</p><ul><li>OAuth in two clicks</li><li>Permission-aware</li></ul></div>
+          </li>
+          <li class="work-step">
+            <span class="work-num">02</span>
+            <div><h3>Axiom reads everything, once</h3><p>Documents, threads and tickets are indexed in place and kept fresh with change events — typically within ninety seconds of an edit.</p><ul><li>Incremental sync</li><li>48M docs in production</li></ul></div>
+          </li>
+          <li class="work-step">
+            <span class="work-num">03</span>
+            <div><h3>Ask in plain language</h3><p>From the web app, Slack or your own product via the API. Every answer cites its sources and flags anything it could not verify.</p><ul><li>Slack &amp; Teams</li><li>REST &amp; SDKs</li></ul></div>
+          </li>
+          <li class="work-step">
+            <span class="work-num">04</span>
+            <div><h3>Turn repeats into workflows</h3><p>When the same question keeps coming up, promote it to an agent that drafts, files and follows up — with a human approving the steps that matter.</p><ul><li>Human-in-the-loop</li><li>Full audit trail</li></ul></div>
+          </li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <!-- Metrics -->
+    <section class="metrics" aria-label="Results">
+      <div class="wrap metrics-grid">
+        <div data-reveal><b><span data-count="3.2" data-dec="1">0</span>M</b><p>questions answered every week</p></div>
+        <div data-reveal><b><span data-count="94">0</span>%</b><p>resolved without a follow-up</p></div>
+        <div data-reveal><b><span data-count="38">0</span> hrs</b><p>returned to each teammate, monthly</p></div>
+        <div data-reveal><b><span data-count="5">0</span> min</b><p>median time to first answer</p></div>
+      </div>
+    </section>
+
+    <!-- Pricing -->
+    <section class="section" id="pricing">
+      <div class="wrap">
+        <header class="sec-head sec-head-center">
+          <p class="eyebrow" data-reveal>Pricing</p>
+          <h2 class="sec-title" data-split>Start free. Pay when it's <em class="grad">indispensable.</em></h2>
+          <div class="bill" id="bill" data-reveal>
+            <button class="is-active" data-bill="monthly">Monthly</button>
+            <button data-bill="annual">Annual<span>−20%</span></button>
+          </div>
+        </header>
+
+        <div class="plans">
+          <article class="plan" data-reveal>
+            <h3>Starter</h3>
+            <p class="plan-for">For small teams finding their feet.</p>
+            <div class="plan-price"><b>$0</b><span>free forever</span></div>
+            <button class="btn btn-line btn-block" data-modal="start" data-plan="Starter">Start free</button>
+            <ul>
+              <li><i data-lucide="check"></i>Up to 3 seats</li>
+              <li><i data-lucide="check"></i>2 connectors</li>
+              <li><i data-lucide="check"></i>500 answers a month</li>
+              <li><i data-lucide="check"></i>Slack app</li>
+            </ul>
+          </article>
+          <article class="plan plan-hot" data-reveal>
+            <span class="plan-flag">Most popular</span>
+            <h3>Team</h3>
+            <p class="plan-for">For companies that run on shared knowledge.</p>
+            <div class="plan-price"><b>$<span id="teamPrice">24</span></b><span>per seat / month<em id="teamNote">billed monthly</em></span></div>
+            <button class="btn btn-grad btn-block" data-modal="start" data-plan="Team">Start 14-day trial</button>
+            <ul>
+              <li><i data-lucide="check"></i>Unlimited seats &amp; answers</li>
+              <li><i data-lucide="check"></i>All 40+ connectors</li>
+              <li><i data-lucide="check"></i>Agents &amp; workflows</li>
+              <li><i data-lucide="check"></i>Analytics &amp; API access</li>
+              <li><i data-lucide="check"></i>SSO with Google &amp; Okta</li>
+            </ul>
+          </article>
+          <article class="plan" data-reveal>
+            <h3>Enterprise</h3>
+            <p class="plan-for">For regulated and global organisations.</p>
+            <div class="plan-price"><b>Custom</b><span>annual contract</span></div>
+            <button class="btn btn-line btn-block" data-modal="demo" data-plan="Enterprise">Talk to sales</button>
+            <ul>
+              <li><i data-lucide="check"></i>Everything in Team</li>
+              <li><i data-lucide="check"></i>SAML, SCIM &amp; audit logs</li>
+              <li><i data-lucide="check"></i>Private cloud or on-prem</li>
+              <li><i data-lucide="check"></i>EU &amp; US data residency</li>
+              <li><i data-lucide="check"></i>Dedicated solutions engineer</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="section voices" id="voices">
+      <div class="wrap">
+        <p class="eyebrow" data-reveal>Customers</p>
+        <div class="voice" id="voice" data-reveal>
+          <blockquote id="voiceQuote"></blockquote>
+          <div class="voice-foot">
+            <div class="voice-who"><img id="voiceImg" src="assets/av-amelia.jpg" alt=""><div><b id="voiceName"></b><span id="voiceRole"></span></div></div>
+            <div class="voice-stat"><b id="voiceStat"></b><span id="voiceStatLabel"></span></div>
+          </div>
+        </div>
+        <div class="voice-nav" id="voiceNav" data-reveal></div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section" id="faq">
+      <div class="wrap faq">
+        <div class="faq-intro">
+          <p class="eyebrow" data-reveal>FAQ</p>
+          <h2 class="sec-title" data-split>Questions, <em class="grad">answered.</em></h2>
+          <p class="work-lede" data-reveal>Something else on your mind? Write to <a href="mailto:hello@axiom.ai">hello@axiom.ai</a> and a human will reply within a day.</p>
+        </div>
+        <div class="faq-list" id="faqList"></div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta" id="cta">
+      <div class="wrap">
+        <div class="cta-card" data-reveal>
+          <div class="cta-glow" aria-hidden="true"></div>
+          <h2>Ask your first question <em class="grad">before lunch.</em></h2>
+          <p>Free for three seats. No credit card, no sales call.</p>
+          <form class="cta-form" id="ctaForm" novalidate>
+            <input type="email" id="ctaEmail" placeholder="you@company.com" autocomplete="email" aria-label="Work email">
+            <button class="btn btn-light" type="submit">Get started<i data-lucide="arrow-right"></i></button>
+          </form>
+          <p class="cta-msg" id="ctaMsg" role="status"></p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <a class="logo" href="#top"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 5 27 26H5z" /><circle cx="16" cy="19" r="2.8" /></svg><span>Axiom</span></a>
+          <p>The answer layer for companies that write things down.</p>
+          <a class="status" href="#showcase"><i></i>All systems operational</a>
+        </div>
+        <nav aria-label="Product"><h4>Product</h4><a href="#features">Features</a><a href="#showcase">Live demo</a><a href="#workflow">How it works</a><a href="#pricing">Pricing</a></nav>
+        <nav aria-label="Company"><h4>Company</h4><a href="#voices">Customers</a><a href="#faq">FAQ</a><a href="mailto:careers@axiom.ai">Careers</a><a href="mailto:press@axiom.ai">Press</a></nav>
+        <nav aria-label="Contact"><h4>Contact</h4><a href="mailto:hello@axiom.ai">hello@axiom.ai</a><a href="mailto:security@axiom.ai">security@axiom.ai</a><button data-modal="demo">Book a walkthrough</button><button data-modal="signin">Sign in</button></nav>
+      </div>
+      <div class="footer-bottom"><span>© 2026 Axiom Labs, Inc.</span><span>Made for teams who would rather ask than search.</span></div>
+    </div>
+  </footer>
+
+  <!-- Mobile menu -->
+  <div class="mmenu" id="mmenu" aria-hidden="true">
+    <nav><a href="#features">Product</a><a href="#showcase">Live demo</a><a href="#workflow">How it works</a><a href="#pricing">Pricing</a><a href="#faq">FAQ</a></nav>
+    <div><button class="btn btn-line btn-block" data-modal="signin">Sign in</button><button class="btn btn-light btn-block" data-modal="start">Start free</button></div>
+  </div>
+
+  <!-- Modal -->
+  <div class="modal" id="modal" aria-hidden="true">
+    <div class="modal-scrim" data-close></div>
+    <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <button class="modal-x" data-close aria-label="Close"><i data-lucide="x"></i></button>
+      <div id="modalBody"></div>
+    </div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="https://unpkg.com/lucide@0.469.0/dist/umd/lucide.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

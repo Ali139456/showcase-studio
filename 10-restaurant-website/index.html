@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lumière — Fine Dining, Mercer Street</title>
+  <meta name="description" content="Lumière is a modern fine-dining restaurant in Manhattan. Seasonal tasting menus, an intimate cellar, and tables worth dressing for.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Crect width='48' height='48' fill='%230C0B0A'/%3E%3Ccircle cx='24' cy='24' r='9' fill='none' stroke='%23B87333' stroke-width='3'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="is-loading">
+  <div class="loader" id="loader" aria-hidden="true">
+    <div class="loader-inner">
+      <span class="loader-word">Lumière</span>
+      <span class="loader-sub">Mercer Street · New York</span>
+    </div>
+    <div class="loader-bar"><i></i></div>
+  </div>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <header class="header" id="header">
+    <button class="burger only-mobile" id="burger" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    <nav class="nav nav-left" aria-label="Primary">
+      <a href="#menu">Menu</a>
+      <a href="#dishes">Signature</a>
+      <a href="#story">Story</a>
+    </nav>
+    <a class="logo" href="#top">Lumière</a>
+    <nav class="nav nav-right" aria-label="Secondary">
+      <a href="#chef">Chef</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#visit">Visit</a>
+    </nav>
+    <button class="btn btn-copper btn-sm" data-reserve>Reserve</button>
+  </header>
+
+  <div class="mnav" id="mnav" aria-hidden="true">
+    <button class="mnav-close" id="mnavClose" aria-label="Close"><i data-lucide="x"></i></button>
+    <nav>
+      <a href="#menu">Menu</a>
+      <a href="#dishes">Signature</a>
+      <a href="#story">Story</a>
+      <a href="#chef">Chef</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#visit">Visit</a>
+    </nav>
+    <button class="btn btn-copper" data-reserve>Reserve a table</button>
+  </div>
+
+  <main id="top">
+    <section class="hero">
+      <div class="hero-media" id="heroMedia">
+        <img src="assets/hero.jpg" alt="Candlelit dining room at Lumière">
+      </div>
+      <div class="hero-veil"></div>
+      <div class="hero-content">
+        <p class="eyebrow reveal">Manhattan · Est. 2014</p>
+        <h1 class="hero-title">
+          <span class="line"><span>An evening</span></span>
+          <span class="line"><span>worth remembering.</span></span>
+        </h1>
+        <p class="lede reveal">Seasonal tasting menus, a cellar of quiet treasures, and a room that knows when to glow.</p>
+        <div class="hero-cta reveal">
+          <button class="btn btn-copper" data-reserve>Reserve a table</button>
+          <a class="btn btn-ghost" href="#menu">Explore the menu</a>
+        </div>
+      </div>
+      <div class="hero-meta reveal">
+        <div><span>Tonight</span><strong>Tasting menu</strong></div>
+        <div><span>Dress</span><strong>Smart elegant</strong></div>
+        <div><span>Seats</span><strong>48 only</strong></div>
+      </div>
+      <a class="hero-scroll" href="#menu"><span>Scroll</span><i></i></a>
+    </section>
+
+    <section class="marquee" aria-hidden="true">
+      <div class="marquee-track">
+        <span>Seasonal tasting</span><span>Open fire</span><span>Natural wine</span><span>Private dining</span><span>Chef’s counter</span>
+        <span>Seasonal tasting</span><span>Open fire</span><span>Natural wine</span><span>Private dining</span><span>Chef’s counter</span>
+      </div>
+    </section>
+
+    <section class="menu" id="menu">
+      <div class="section-head">
+        <p class="eyebrow">The menu</p>
+        <h2>Four chapters,<br>one evening.</h2>
+        <p class="sec-note">A paced tasting built around the season. À la carte available at the bar and for lunch on weekends.</p>
+      </div>
+
+      <div class="menu-tabs" id="menuTabs" role="tablist" aria-label="Menu categories">
+        <button class="tab is-active" role="tab" aria-selected="true" data-tab="starters">Starters</button>
+        <button class="tab" role="tab" aria-selected="false" data-tab="mains">Mains</button>
+        <button class="tab" role="tab" aria-selected="false" data-tab="desserts">Desserts</button>
+        <button class="tab" role="tab" aria-selected="false" data-tab="cellar">Cellar</button>
+      </div>
+
+      <div class="menu-stage">
+        <figure class="menu-visual" id="menuVisual">
+          <img src="assets/menu-starters.jpg" alt="">
+          <figcaption id="menuCaption">Starters</figcaption>
+        </figure>
+        <div class="menu-list" id="menuList" role="tabpanel"></div>
+      </div>
+    </section>
+
+    <section class="dishes" id="dishes">
+      <div class="section-head row">
+        <div>
+          <p class="eyebrow">Signature dishes</p>
+          <h2>Plates that<br>define the house.</h2>
+        </div>
+        <p class="sec-note">A handful of dishes that have never left the menu — refined each season, never replaced.</p>
+      </div>
+      <div class="dish-rail" id="dishRail"></div>
+    </section>
+
+    <section class="story" id="story">
+      <div class="story-copy">
+        <p class="eyebrow">Our story</p>
+        <h2>Built for long<br>conversations.</h2>
+        <p class="lede">Lumière began as a twelve-seat room above a bookshop. A decade later, the ambition is the same: cook with precision, serve with warmth, and leave room for silence between courses.</p>
+        <dl class="story-stats">
+          <div><dt data-count="12">0</dt><dd>years of evenings</dd></div>
+          <div><dt data-count="48">0</dt><dd>seats in the dining room</dd></div>
+          <div><dt data-count="900">0</dt><dd>labels in the cellar</dd></div>
+        </dl>
+      </div>
+      <div class="story-visuals">
+        <figure class="sv-a"><img src="assets/story-1.jpg" alt="Dining room detail"></figure>
+        <figure class="sv-b"><img src="assets/story-2.jpg" alt="Table setting with candlelight"></figure>
+      </div>
+    </section>
+
+    <section class="chef" id="chef">
+      <figure class="chef-portrait">
+        <img src="assets/chef.jpg" alt="Chef Amélie Rousseau">
+        <figcaption>Amélie Rousseau · Executive Chef</figcaption>
+      </figure>
+      <div class="chef-copy">
+        <p class="eyebrow">Executive chef</p>
+        <h2>Amélie Rousseau</h2>
+        <p class="lede">Trained in Lyon, tempered in Tokyo, and finally at home in New York. Amélie’s cooking is precise without being precious — fire, herbs, and instinct in equal measure.</p>
+        <div class="chef-thumbs">
+          <figure>
+            <img src="assets/chef-fire.jpg" alt="Open fire cooking">
+            <span>Open fire</span>
+          </figure>
+          <figure>
+            <img src="assets/chef-herbs.jpg" alt="Fresh herbs">
+            <span>Garden herbs</span>
+          </figure>
+        </div>
+        <blockquote>
+          <p>“Technique is the grammar. Flavor is the sentence you actually want to hear.”</p>
+        </blockquote>
+      </div>
+    </section>
+
+    <section class="gallery" id="gallery">
+      <div class="section-head row">
+        <div>
+          <p class="eyebrow">Gallery</p>
+          <h2>The room, the plate,<br>the night.</h2>
+        </div>
+        <div class="gal-nav">
+          <button class="icon-round" id="galPrev" aria-label="Previous"><i data-lucide="arrow-left"></i></button>
+          <button class="icon-round" id="galNext" aria-label="Next"><i data-lucide="arrow-right"></i></button>
+        </div>
+      </div>
+      <div class="gal-track-wrap">
+        <div class="gal-track" id="galTrack">
+          <figure><img src="assets/gal-1.jpg" alt="Restaurant atmosphere" loading="lazy"></figure>
+          <figure><img src="assets/gal-2.jpg" alt="Plated dish" loading="lazy"></figure>
+          <figure><img src="assets/gal-3.jpg" alt="Wine service" loading="lazy"></figure>
+          <figure><img src="assets/gal-4.jpg" alt="Dessert course" loading="lazy"></figure>
+          <figure><img src="assets/gal-5.jpg" alt="Bar detail" loading="lazy"></figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="visit" id="visit">
+      <figure class="visit-img"><img src="assets/location.jpg" alt="Lumière storefront at dusk"></figure>
+      <div class="visit-copy">
+        <p class="eyebrow">Visit</p>
+        <h2>Find us<br>on Mercer.</h2>
+        <address>
+          48 Mercer Street<br>
+          New York, NY 10013
+        </address>
+        <div class="hours">
+          <div><span>Tue – Thu</span><strong>5:30 – 10:30</strong></div>
+          <div><span>Fri – Sat</span><strong>5:00 – 11:00</strong></div>
+          <div><span>Sunday</span><strong>5:00 – 9:30</strong></div>
+          <div><span>Monday</span><strong>Closed</strong></div>
+        </div>
+        <div class="visit-actions">
+          <button class="btn btn-copper" data-reserve>Reserve a table</button>
+          <a class="btn btn-ghost" href="tel:+12125550148">+1 212 555 0148</a>
+        </div>
+        <p class="visit-note">Walk-ins welcome at the bar. Parties of seven or more by inquiry only.</p>
+      </div>
+    </section>
+
+    <section class="cta-band">
+      <p class="eyebrow">Tonight</p>
+      <h2>The best tables<br>go first.</h2>
+      <button class="btn btn-copper" data-reserve>Request a reservation</button>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-top">
+      <a class="logo" href="#top">Lumière</a>
+      <div class="footer-cols">
+        <div>
+          <h4>Explore</h4>
+          <a href="#menu">Menu</a>
+          <a href="#chef">Chef</a>
+          <a href="#gallery">Gallery</a>
+        </div>
+        <div>
+          <h4>Visit</h4>
+          <a href="#visit">Location</a>
+          <button type="button" data-reserve>Reservations</button>
+          <button type="button" id="giftBtn">Gift cards</button>
+        </div>
+        <div>
+          <h4>Contact</h4>
+          <a href="mailto:hello@lumiere.nyc">hello@lumiere.nyc</a>
+          <a href="tel:+12125550148">+1 212 555 0148</a>
+          <button type="button" id="pressBtn">Press</button>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Lumière Restaurant. All rights reserved.</p>
+      <p>48 Mercer Street, New York</p>
+    </div>
+  </footer>
+
+  <div class="scrim" id="scrim" hidden></div>
+  <div class="modal" id="reserveModal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="reserveTitle">
+    <div class="modal-panel">
+      <button class="modal-close" id="reserveClose" aria-label="Close"><i data-lucide="x"></i></button>
+      <div id="reserveBody">
+        <p class="eyebrow">Reservations</p>
+        <h2 id="reserveTitle">Request a table</h2>
+        <p class="modal-lede">We’ll confirm by email within a few hours. Same-day requests are best by phone.</p>
+        <form id="reserveForm" class="reserve-form">
+          <div class="form-row">
+            <label>Date<input type="date" name="date" required></label>
+            <label>Time
+              <select name="time" required>
+                <option value="17:30">5:30 PM</option>
+                <option value="18:00">6:00 PM</option>
+                <option value="18:30">6:30 PM</option>
+                <option value="19:00" selected>7:00 PM</option>
+                <option value="19:30">7:30 PM</option>
+                <option value="20:00">8:00 PM</option>
+                <option value="20:30">8:30 PM</option>
+                <option value="21:00">9:00 PM</option>
+              </select>
+            </label>
+          </div>
+          <div class="form-row">
+            <label>Guests
+              <select name="guests" id="guestsSelect" required></select>
+            </label>
+            <label>Occasion
+              <select name="occasion">
+                <option>None</option>
+                <option>Anniversary</option>
+                <option>Birthday</option>
+                <option>Business</option>
+              </select>
+            </label>
+          </div>
+          <label>Name<input name="name" required placeholder="Full name" autocomplete="name"></label>
+          <label>Email<input type="email" name="email" required placeholder="you@email.com" autocomplete="email"></label>
+          <label>Phone<input type="tel" name="phone" required placeholder="+1" autocomplete="tel"></label>
+          <label>Notes<textarea name="notes" rows="2" placeholder="Allergies, preferences, celebration details…"></textarea></label>
+          <button class="btn btn-copper btn-block" type="submit">Confirm request</button>
+        </form>
+      </div>
+      <div id="reserveSuccess" hidden>
+        <p class="eyebrow">Request received</p>
+        <h2>We have your table request.</h2>
+        <p class="modal-lede" id="successMsg"></p>
+        <button class="btn btn-copper" id="successClose">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://unpkg.com/lucide@0.469.0/dist/umd/lucide.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

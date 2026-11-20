@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Maison Aurèle — Autumn / Winter 2026</title>
+  <meta name="description" content="Maison Aurèle. Twelve pieces a season, cut in Paris and finished by hand. Discover the Autumn / Winter 2026 collection, The Quiet Hours.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Crect width='48' height='48' fill='%23171412'/%3E%3Ctext x='24' y='34' font-family='Georgia,serif' font-size='30' font-style='italic' fill='%23f3efe7' text-anchor='middle'%3EA%3C/text%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;1,6..96,400;1,6..96,500&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="loader" id="loader" aria-hidden="true">
+    <div class="loader-panel loader-top"></div>
+    <div class="loader-panel loader-bottom"></div>
+    <div class="loader-mark">
+      <span class="loader-name"><span>Maison</span> <span><em>Aurèle</em></span></span>
+      <span class="loader-rule"></span>
+      <span class="loader-sub">Paris — Automne / Hiver 2026</span>
+    </div>
+  </div>
+
+  <div class="cursor" id="cursor" aria-hidden="true"><span>View</span></div>
+
+  <header class="header" id="header">
+    <div class="header-left">
+      <button class="menu-btn" id="menuOpen" aria-label="Open menu" aria-expanded="false"><span class="burger"><i></i><i></i></span><span>Menu</span></button>
+      <nav class="header-links" aria-label="Primary"><a href="#collection">Collection</a><a href="#boutique">Boutique</a><a href="#lookbook">Lookbook</a></nav>
+    </div>
+    <a class="wordmark" href="#top" aria-label="Maison Aurèle">Maison <em>Aurèle</em></a>
+    <div class="header-right">
+      <a class="header-link" href="#maison">La Maison</a>
+      <button class="bag-btn" id="bagOpen" aria-label="Open bag">Bag (<span id="bagCount">0</span>)</button>
+    </div>
+  </header>
+
+  <!-- Full-screen menu -->
+  <div class="menu" id="menu" aria-hidden="true">
+    <div class="menu-head"><span class="wordmark">Maison <em>Aurèle</em></span><button class="menu-close" id="menuClose">Close</button></div>
+    <div class="menu-body">
+      <nav class="menu-nav" aria-label="Menu">
+        <a href="#collection" data-img="assets/col-1.jpg"><small>01</small><span>Collection</span></a>
+        <a href="#categories" data-img="assets/cat-tailoring.jpg"><small>02</small><span>Categories</span></a>
+        <a href="#editorial" data-img="assets/ed-1.jpg"><small>03</small><span>Editorial</span></a>
+        <a href="#boutique" data-img="assets/p-bomber.jpg"><small>04</small><span>Boutique</span></a>
+        <a href="#maison" data-img="assets/story-1.jpg"><small>05</small><span>La Maison</span></a>
+        <a href="#lookbook" data-img="assets/look-2.jpg"><small>06</small><span>Lookbook</span></a>
+      </nav>
+      <div class="menu-preview"><img id="menuImg" src="assets/col-1.jpg" alt=""></div>
+    </div>
+    <div class="menu-foot"><span>12 Rue de Thorigny, 75003 Paris</span><a href="mailto:atelier@maisonaurele.com">atelier@maisonaurele.com</a><span>Mon – Sat, 11h – 19h</span></div>
+  </div>
+
+  <main id="top">
+    <!-- HERO -->
+    <section class="hero" id="hero">
+      <div class="hero-media"><img src="assets/hero.jpg" alt="Model in a camel double-faced coat and ribbed olive knit, adjusting narrow black sunglasses" id="heroImg"></div>
+      <div class="hero-shade"></div>
+      <div class="hero-top">
+        <p>Campaign — AW26</p>
+        <p>Photographed in Cappadocia</p>
+      </div>
+      <h1 class="hero-title">
+        <span class="row"><span>The Quiet</span></span>
+        <span class="row row-b"><span><em>Hours</em></span><small>Autumn / Winter<br>2026 Collection</small></span>
+      </h1>
+      <div class="hero-foot">
+        <a class="link-line" href="#collection"><span>Discover the collection</span></a>
+        <span class="scroll-cue"><i></i>Scroll</span>
+      </div>
+    </section>
+
+    <!-- STATEMENT -->
+    <section class="statement">
+      <p class="eyebrow">Notes on the season</p>
+      <p class="statement-text" id="statement">A wardrobe in twelve pieces. Cut in Paris, woven in Biella and finished by hand — made to be worn for a decade, <em>not a season.</em></p>
+    </section>
+
+    <!-- COLLECTION -->
+    <section class="collection" id="collection">
+      <div class="collection-copy">
+        <p class="eyebrow">New collection</p>
+        <h2 class="h-xl" data-lines>The <em>Quiet</em><br>Hours</h2>
+        <p class="body">Our twentieth collection is a study in restraint. Double-faced wools the colour of wet sand, tailoring softened at the shoulder, and knitwear heavy enough to replace a coat on the first cold morning.</p>
+        <ul class="facts">
+          <li><span>Pieces</span><b>12</b></li>
+          <li><span>Mills</span><b>Biella, Prato</b></li>
+          <li><span>Release</span><b>18 September</b></li>
+        </ul>
+        <a class="link-line" href="#boutique"><span>Shop the collection</span></a>
+      </div>
+      <div class="collection-media">
+        <figure class="col-a" data-cursor data-lightbox><div class="reveal"><img src="assets/col-1.jpg" alt="Woman in a dusty-pink wool coat walking beneath a stone arcade" data-parallax="8"></div><figcaption><span>Look 04</span>Brushed wool coat in Rose Cendré</figcaption></figure>
+        <figure class="col-b" data-cursor data-lightbox><div class="reveal"><img src="assets/col-2.jpg" alt="Woman in an oversized blue denim coat in front of the Duomo di Milano" data-parallax="8"></div><figcaption><span>Look 07</span>Oversized washed-indigo trench</figcaption></figure>
+        <figure class="col-c" data-cursor data-lightbox><div class="reveal"><img src="assets/col-3.jpg" alt="Woman in a dark green windowpane coat carrying a burgundy handbag" data-parallax="8"></div><figcaption><span>Look 11</span>Windowpane coat, Le Sac Tressé</figcaption></figure>
+      </div>
+    </section>
+
+    <!-- CATEGORIES -->
+    <section class="categories" id="categories">
+      <header class="sec-head">
+        <p class="eyebrow">Shop by category</p>
+        <h2 class="h-lg" data-lines>Four <em>departments,</em> one point of view</h2>
+      </header>
+      <div class="cat-row">
+        <a class="cat" href="#boutique" data-cat="Outerwear"><img src="assets/cat-outerwear.jpg" alt="Black lambskin biker jacket"><div class="cat-info"><small>01</small><h3>Outerwear</h3><p>14 pieces</p></div><span class="cat-go">Explore</span></a>
+        <a class="cat" href="#boutique" data-cat="Knitwear"><img src="assets/cat-knitwear.jpg" alt="Ivory open-knit top on a wooden hanger"><div class="cat-info"><small>02</small><h3>Knitwear</h3><p>22 pieces</p></div><span class="cat-go">Explore</span></a>
+        <a class="cat" href="#boutique" data-cat="Tailoring"><img src="assets/cat-tailoring.jpg" alt="Man seated in a camel blazer and cream trousers"><div class="cat-info"><small>03</small><h3>Tailoring</h3><p>18 pieces</p></div><span class="cat-go">Explore</span></a>
+        <a class="cat" href="#boutique" data-cat="Accessories"><img src="assets/cat-accessories.jpg" alt="Structured red leather top-handle bag"><div class="cat-info"><small>04</small><h3>Accessories</h3><p>31 pieces</p></div><span class="cat-go">Explore</span></a>
+      </div>
+    </section>
+
+    <!-- EDITORIAL -->
+    <section class="editorial" id="editorial">
+      <header class="sec-head sec-head-split">
+        <div><p class="eyebrow">Editorial — Vol. 20</p><h2 class="h-xl" data-lines>Slow <em>Light</em></h2></div>
+        <p class="body">Six portraits made between first light and the long shadows of late afternoon. Photographed by Inès Marchetti, styled by the atelier.</p>
+      </header>
+      <div class="ed-grid">
+        <figure class="ed ed-1" data-cursor data-lightbox><div class="reveal"><img src="assets/ed-1.jpg" alt="Woman in a blush ruffled blouse standing in tall dry grass" data-parallax="6"></div><figcaption><span>I.</span>Organza blouse in Blush</figcaption></figure>
+        <figure class="ed ed-2" data-cursor data-lightbox><div class="reveal"><img src="assets/ed-2.jpg" alt="Woman in a rust and cream colour-block sweater by the sea" data-parallax="6"></div><figcaption><span>II.</span>Intarsia sweater, raw-hem short</figcaption></figure>
+        <blockquote class="ed-quote"><p>“We don’t design for the photograph. We design for the tenth winter.”</p><cite>Aurèle Vasseur, Creative Director</cite></blockquote>
+        <figure class="ed ed-3" data-cursor data-lightbox><div class="reveal"><img src="assets/ed-3.jpg" alt="Man in a brown leather jacket and round sunglasses" data-parallax="6"></div><figcaption><span>III.</span>Cognac calfskin perfecto</figcaption></figure>
+        <figure class="ed ed-4" data-cursor data-lightbox><div class="reveal"><img src="assets/ed-4.jpg" alt="Man seated before a circular window overlooking the sea" data-parallax="6"></div><figcaption><span>IV.</span>Wool overshirt, rust chino</figcaption></figure>
+        <figure class="ed ed-5" data-cursor data-lightbox><div class="reveal"><img src="assets/ed-5.jpg" alt="Portrait of a woman in a sheer black blouse" data-parallax="6"></div><figcaption><span>V.</span>Silk-chiffon blouse in Noir</figcaption></figure>
+        <figure class="ed ed-6" data-cursor data-lightbox><div class="reveal"><img src="assets/ed-6.jpg" alt="Woman in a red polka-dot dress walking through a field" data-parallax="6"></div><figcaption><span>VI.</span>Crêpe wrap dress in Garance</figcaption></figure>
+      </div>
+    </section>
+
+    <!-- BOUTIQUE -->
+    <section class="boutique" id="boutique">
+      <header class="sec-head sec-head-split">
+        <div><p class="eyebrow">Featured pieces</p><h2 class="h-lg" data-lines>From the <em>boutique</em></h2></div>
+        <div class="boutique-tools">
+          <div class="tabs" id="tabs" role="tablist">
+            <button class="is-active" data-cat="All">All</button><button data-cat="Outerwear">Outerwear</button><button data-cat="Knitwear">Knitwear</button><button data-cat="Tailoring">Tailoring</button><button data-cat="Accessories">Accessories</button>
+          </div>
+          <div class="arrows"><button id="prodPrev" aria-label="Previous pieces"><i data-lucide="arrow-left"></i></button><button id="prodNext" aria-label="Next pieces"><i data-lucide="arrow-right"></i></button></div>
+        </div>
+      </header>
+      <div class="products" id="products"></div>
+      <div class="prod-progress"><span id="prodBar"></span></div>
+    </section>
+
+    <!-- MAISON -->
+    <section class="maison" id="maison">
+      <div class="maison-top">
+        <p class="eyebrow">La Maison</p>
+        <h2 class="h-xl" data-lines>Made by forty hands,<br><em>signed by one.</em></h2>
+      </div>
+      <div class="maison-grid">
+        <figure class="maison-a"><div class="reveal"><img src="assets/story-1.jpg" alt="Neutral linen and wool garments hanging on a rail beside dried pampas grass" data-parallax="8"></div></figure>
+        <div class="maison-copy">
+          <p class="body body-lg">Founded in a third-floor workroom in the Marais in 1987, the Maison still cuts every pattern on the same oak table. Forty artisans work across two ateliers; each garment passes through every pair of hands before it is signed inside the collar.</p>
+          <p class="body">We release two collections a year and never mark them down. What does not sell is unpicked and re-cut. Repairs are free for the life of the piece.</p>
+          <ul class="numbers">
+            <li><strong data-count="1987" data-plain>1987</strong><span>Founded in Paris</span></li>
+            <li><strong data-count="40">0</strong><span>Artisans in the atelier</span></li>
+            <li><strong data-count="62" data-suffix="h">0</strong><span>To make a single coat</span></li>
+          </ul>
+          <p class="signature">Aurèle Vasseur</p>
+        </div>
+        <figure class="maison-b"><div class="reveal"><img src="assets/story-2.jpg" alt="Rail of shirts in white, tan and rust tones" data-parallax="8"></div></figure>
+      </div>
+    </section>
+
+    <!-- LOOKBOOK -->
+    <section class="lookbook" id="lookbook">
+      <div class="look-pin" id="lookPin">
+        <div class="look-head">
+          <p class="eyebrow">Lookbook — Resort</p>
+          <h2 class="h-xl">Six <em>Looks</em></h2>
+          <p class="look-count"><b id="lookNow">01</b><i></i>06</p>
+        </div>
+        <div class="look-track" id="lookTrack">
+          <figure class="look" data-cursor data-lightbox><img src="assets/look-1.jpg" alt="Camel wool coat over ribbed olive knit"><figcaption><b>01</b><span>Double-faced coat<br>Ribbed funnel-neck</span></figcaption></figure>
+          <figure class="look" data-cursor data-lightbox><img src="assets/look-2.jpg" alt="Deep teal satin halter jumpsuit"><figcaption><b>02</b><span>Satin halter jumpsuit<br>in Canard</span></figcaption></figure>
+          <figure class="look" data-cursor data-lightbox><img src="assets/look-3.jpg" alt="Cobalt two-piece suit with white open-collar shirt"><figcaption><b>03</b><span>Two-button suit in Cobalt<br>Poplin shirt</span></figcaption></figure>
+          <figure class="look" data-cursor data-lightbox><img src="assets/look-4.jpg" alt="Two women in garnet sequined off-shoulder sets"><figcaption><b>04</b><span>Sequinned bardot top<br>Tiered skirt in Garnet</span></figcaption></figure>
+          <figure class="look" data-cursor data-lightbox><img src="assets/look-5.jpg" alt="Soft pink crewneck with washed straight-leg denim"><figcaption><b>05</b><span>Cashmere crewneck in Pétale<br>Washed selvedge denim</span></figcaption></figure>
+          <figure class="look" data-cursor data-lightbox><img src="assets/look-6.jpg" alt="Floral print wrap dress on a seaside terrace"><figcaption><b>06</b><span>Printed silk wrap dress<br>Riviera floral</span></figcaption></figure>
+          <a class="look-end" href="#boutique"><span>Shop<br><em>the looks</em></span><span class="look-arrow"><i data-lucide="arrow-right"></i></span></a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-news">
+      <div><p class="eyebrow">Correspondence</p><h3 class="h-md">Letters from the atelier, four times a year.</h3></div>
+      <form id="newsForm" novalidate><input type="email" id="newsEmail" placeholder="Your email address" aria-label="Email address" autocomplete="email"><button type="submit">Subscribe</button><p id="newsMsg" role="status"></p></form>
+    </div>
+    <div class="footer-cols">
+      <nav aria-label="Collections"><h4>Collections</h4><a href="#collection">Autumn / Winter 26</a><a href="#lookbook">Resort</a><a href="#editorial">Editorial</a><a href="#boutique">Boutique</a></nav>
+      <nav aria-label="Maison"><h4>La Maison</h4><a href="#maison">Our story</a><a href="#maison">The atelier</a><a href="#maison">Repairs for life</a><a href="mailto:press@maisonaurele.com">Press</a></nav>
+      <div><h4>Client services</h4><a href="tel:+33142770126">+33 1 42 77 01 26</a><a href="mailto:atelier@maisonaurele.com">atelier@maisonaurele.com</a><p>Mon – Sat, 11h – 19h CET</p></div>
+      <div><h4>Boutiques</h4><p>12 Rue de Thorigny, Paris 3<sup>e</sup></p><p>Via della Spiga 26, Milano</p><p>41 Mount Street, London W1</p></div>
+    </div>
+    <div class="footer-legal"><span>© 2026 Maison Aurèle S.A.S.</span><span>Imagery courtesy of Unsplash contributors</span><span><a href="https://www.instagram.com/" target="_blank" rel="noopener">Instagram</a> · <a href="https://www.pinterest.com/" target="_blank" rel="noopener">Pinterest</a></span></div>
+    <div class="footer-mark" aria-hidden="true"><span>Aurèle</span></div>
+  </footer>
+
+  <!-- Bag -->
+  <div class="scrim" id="scrim"></div>
+  <aside class="bag" id="bag" aria-hidden="true" aria-label="Shopping bag">
+    <header><h3>Your <em>bag</em></h3><button id="bagClose">Close</button></header>
+    <div class="bag-body" id="bagBody"></div>
+    <footer id="bagFoot"><div class="bag-total"><span>Subtotal</span><b id="bagTotal">€0</b></div><p>Complimentary delivery and returns on every order.</p><button class="btn-fill" id="bagCheckout"><span>Proceed to checkout</span></button></footer>
+  </aside>
+
+  <!-- Lightbox -->
+  <div class="lightbox" id="lightbox" aria-hidden="true" role="dialog" aria-label="Image viewer">
+    <button class="lb-close" id="lbClose">Close</button>
+    <button class="lb-nav lb-prev" id="lbPrev" aria-label="Previous image"><i data-lucide="arrow-left"></i></button>
+    <figure><img id="lbImg" src="assets/col-1.jpg" alt=""><figcaption id="lbCap"></figcaption></figure>
+    <button class="lb-nav lb-next" id="lbNext" aria-label="Next image"><i data-lucide="arrow-right"></i></button>
+  </div>
+
+  <div class="toast" id="toast" role="status"></div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://unpkg.com/lucide@0.469.0/dist/umd/lucide.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

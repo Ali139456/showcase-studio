@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Meridian — Revenue Intelligence</title>
+  <meta name="description" content="Meridian is a revenue intelligence workspace for product-led SaaS teams.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Crect width='48' height='48' rx='12' fill='%236b6cf6'/%3E%3Cpath d='M12 34V16l12 11 12-11v18' fill='none' stroke='%23fff' stroke-width='4.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="loader" id="loader" aria-hidden="true">
+    <svg class="loader-mark" viewBox="0 0 48 48" fill="none">
+      <path class="loader-path" d="M8 36V14l16 14 16-14v22" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+    <div class="loader-bar"><span></span></div>
+  </div>
+
+  <div class="app" id="app">
+
+    <aside class="sidebar" id="sidebar">
+      <div class="ws">
+        <button class="ws-btn" id="wsBtn" aria-haspopup="true" aria-expanded="false">
+          <span class="ws-logo">
+            <svg viewBox="0 0 48 48" fill="none"><path d="M8 36V14l16 14 16-14v22" stroke="currentColor" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </span>
+          <span class="ws-meta"><strong id="wsName">Northwind Cloud</strong><small>Scale plan · 48 seats</small></span>
+          <i data-lucide="chevrons-up-down"></i>
+        </button>
+        <div class="ws-menu" id="wsMenu" role="menu">
+          <p class="menu-label">Workspaces</p>
+          <button class="ws-item is-active" data-ws="Northwind Cloud"><span class="ws-dot" style="--c:#7170ff">N</span>Northwind Cloud<i data-lucide="check"></i></button>
+          <button class="ws-item" data-ws="Halden Labs"><span class="ws-dot" style="--c:#3ecf8e">H</span>Halden Labs<i data-lucide="check"></i></button>
+          <button class="ws-item" data-ws="Pine &amp; Ivory"><span class="ws-dot" style="--c:#f5a524">P</span>Pine &amp; Ivory<i data-lucide="check"></i></button>
+        </div>
+      </div>
+
+      <nav class="nav" aria-label="Primary">
+        <button class="nav-item is-active" data-view="overview"><i data-lucide="layout-dashboard"></i><span>Overview</span></button>
+        <button class="nav-item" data-view="revenue"><i data-lucide="trending-up"></i><span>Revenue</span></button>
+        <button class="nav-item" data-view="projects"><i data-lucide="folder-kanban"></i><span>Projects</span><em class="nav-count" id="navProjects">8</em></button>
+        <button class="nav-item" data-view="team"><i data-lucide="users"></i><span>Team</span></button>
+        <button class="nav-item" data-view="activity"><i data-lucide="activity"></i><span>Activity</span></button>
+        <button class="nav-item" data-view="inbox"><i data-lucide="inbox"></i><span>Inbox</span><em class="nav-count is-accent" id="navInbox">4</em></button>
+      </nav>
+
+      <p class="nav-label">Pinned projects</p>
+      <nav class="nav nav-pins" aria-label="Pinned projects">
+        <button class="nav-item nav-pin" data-project="Billing v3 migration"><span class="pin" style="--c:#7170ff"></span><span>Billing v3 migration</span></button>
+        <button class="nav-item nav-pin" data-project="Self-serve onboarding"><span class="pin" style="--c:#3ecf8e"></span><span>Self-serve onboarding</span></button>
+        <button class="nav-item nav-pin" data-project="Usage-based pricing"><span class="pin" style="--c:#f5a524"></span><span>Usage-based pricing</span></button>
+      </nav>
+
+      <div class="side-foot">
+        <div class="usage">
+          <div class="usage-top"><span>Tracked revenue</span><b>82%</b></div>
+          <div class="usage-bar"><span style="--w:82%"></span></div>
+          <p>$4.1M of $5M included in Scale.</p>
+          <button class="btn btn-ghost btn-sm" id="upgradeBtn">Review plan<i data-lucide="arrow-up-right"></i></button>
+        </div>
+        <button class="nav-item" id="settingsBtn"><i data-lucide="settings"></i><span>Settings</span></button>
+        <button class="nav-item" id="helpBtn"><i data-lucide="life-buoy"></i><span>Help &amp; shortcuts</span></button>
+      </div>
+    </aside>
+
+    <div class="main">
+      <header class="topbar">
+        <button class="icon-btn only-mobile" id="menuBtn" aria-label="Open navigation"><i data-lucide="panel-left"></i></button>
+        <div class="crumbs"><span>Northwind Cloud</span><i data-lucide="chevron-right"></i><b id="crumb">Overview</b></div>
+
+        <button class="search" id="searchBtn" aria-label="Open command menu">
+          <i data-lucide="search"></i><span>Search or jump to…</span><kbd>Ctrl K</kbd>
+        </button>
+
+        <div class="top-actions">
+          <div class="seg" id="rangeSeg" role="tablist" aria-label="Date range">
+            <button data-range="7d">7D</button>
+            <button data-range="30d" class="is-active">30D</button>
+            <button data-range="90d">90D</button>
+            <button data-range="12m">12M</button>
+            <span class="seg-thumb"></span>
+          </div>
+          <button class="icon-btn" id="themeBtn" aria-label="Toggle colour theme"><i data-lucide="sun" class="i-sun"></i><i data-lucide="moon" class="i-moon"></i></button>
+          <div class="pop-wrap">
+            <button class="icon-btn" id="bellBtn" aria-label="Notifications" aria-expanded="false"><i data-lucide="bell"></i><span class="bell-dot" id="bellDot"></span></button>
+            <div class="popover" id="notifPop">
+              <div class="pop-head">
+                <strong>Notifications</strong>
+                <button class="link-btn" id="markAll">Mark all as read</button>
+              </div>
+              <div class="pop-tabs" id="notifTabs">
+                <button class="is-active" data-filter="all">All</button>
+                <button data-filter="unread">Unread <em id="unreadCount">4</em></button>
+                <button data-filter="mentions">Mentions</button>
+              </div>
+              <ul class="notif-list" id="notifList"></ul>
+            </div>
+          </div>
+          <button class="avatar-btn" id="profileBtn" aria-label="Account"><img src="assets/av-elena.jpg" alt="Elena Marsh"><span class="status"></span></button>
+        </div>
+      </header>
+
+      <main class="content" id="content">
+        <section class="welcome" data-anim>
+          <div>
+            <p class="eyebrow" id="today">Friday, 20 November</p>
+            <h1 id="viewTitle">Good afternoon, Elena</h1>
+            <p class="sub" id="viewSub">Net new MRR is pacing <b>12.4% ahead</b> of plan. Three renewals need attention this week.</p>
+          </div>
+          <div class="welcome-actions">
+            <button class="btn btn-ghost" id="exportBtn"><i data-lucide="download"></i>Export</button>
+            <button class="btn btn-primary" id="newProjectBtn"><i data-lucide="plus"></i>New project</button>
+          </div>
+        </section>
+
+        <section class="grid" id="grid">
+
+          <div class="kpis" data-views="overview revenue" id="kpis"></div>
+
+          <article class="panel panel-chart" data-views="overview revenue" id="panelChart">
+            <header class="panel-head">
+              <div>
+                <h2>Revenue analytics</h2>
+                <p class="panel-sub"><span class="big-num" id="chartTotal">$0</span><span class="delta up" id="chartDelta"><i data-lucide="arrow-up-right"></i>0%</span><span class="muted" id="chartCaption">vs previous 30 days</span></p>
+              </div>
+              <div class="tabs" id="metricTabs">
+                <button class="is-active" data-metric="revenue">Revenue</button>
+                <button data-metric="newmrr">New MRR</button>
+                <button data-metric="churn">Churned</button>
+              </div>
+            </header>
+            <div class="chart" id="chart">
+              <svg id="chartSvg" role="img" aria-label="Revenue over time"></svg>
+              <div class="chart-tip" id="chartTip"><small></small><strong></strong><span></span></div>
+            </div>
+            <footer class="chart-legend">
+              <span><i class="sw sw-a"></i>This period</span>
+              <span><i class="sw sw-b"></i>Previous period</span>
+              <span class="legend-note"><i data-lucide="sparkles"></i>Forecast lands at <b id="forecast">$412k</b> by month end</span>
+            </footer>
+          </article>
+
+          <article class="panel panel-mix" data-views="overview revenue" id="panelMix">
+            <header class="panel-head">
+              <div><h2>Revenue by plan</h2><p class="panel-sub muted">Share of recurring revenue</p></div>
+              <button class="icon-btn sm" id="mixToggle" aria-label="Switch between share and value"><i data-lucide="percent"></i></button>
+            </header>
+            <div class="mix-ring">
+              <svg viewBox="0 0 120 120" id="mixSvg"></svg>
+              <div class="mix-center"><small>ARR</small><strong id="mixTotal">$4.1M</strong></div>
+            </div>
+            <ul class="mix-list" id="mixList"></ul>
+          </article>
+
+          <article class="panel panel-projects" data-views="overview projects" id="panelProjects">
+            <header class="panel-head">
+              <div><h2>Project overview</h2><p class="panel-sub muted"><span id="projCount">8</span> initiatives across 3 teams</p></div>
+              <div class="tabs" id="projTabs">
+                <button class="is-active" data-status="all">All</button>
+                <button data-status="On track">On track</button>
+                <button data-status="At risk">At risk</button>
+                <button data-status="Shipped">Shipped</button>
+              </div>
+            </header>
+            <div class="table-wrap">
+              <table class="table">
+                <thead><tr><th>Project</th><th>Status</th><th>Progress</th><th>Lead</th><th class="t-right">Due</th></tr></thead>
+                <tbody id="projBody"></tbody>
+              </table>
+            </div>
+          </article>
+
+          <article class="panel panel-activity" data-views="overview activity" id="panelActivity">
+            <header class="panel-head">
+              <div><h2>Recent activity</h2><p class="panel-sub muted">Across your workspace</p></div>
+              <span class="live"><i></i>Live</span>
+            </header>
+            <ul class="feed" id="feed"></ul>
+          </article>
+
+          <article class="panel panel-team" data-views="overview team" id="panelTeam">
+            <header class="panel-head">
+              <div><h2>Team members</h2><p class="panel-sub muted"><span id="onlineCount">5</span> online now</p></div>
+              <button class="btn btn-ghost btn-sm" id="inviteBtn"><i data-lucide="user-plus"></i>Invite</button>
+            </header>
+            <ul class="team" id="team"></ul>
+          </article>
+
+          <article class="panel panel-inbox" data-views="overview inbox team activity" id="panelInbox">
+            <header class="panel-head">
+              <div><h2>Needs your attention</h2><p class="panel-sub muted">Signals from billing, product and support</p></div>
+              <button class="link-btn" id="markAll2">Mark all as read</button>
+            </header>
+            <ul class="notif-list notif-inline" id="inboxList"></ul>
+          </article>
+
+        </section>
+
+        <footer class="foot">
+          <span>Meridian 4.12 · All systems operational</span>
+          <span>Data refreshed <b id="refreshed">just now</b></span>
+        </footer>
+      </main>
+    </div>
+  </div>
+
+  <div class="scrim" id="scrim"></div>
+
+  <!-- Command palette -->
+  <div class="cmdk" id="cmdk" role="dialog" aria-modal="true" aria-label="Command menu">
+    <div class="cmdk-box">
+      <div class="cmdk-input"><i data-lucide="search"></i><input id="cmdInput" type="text" placeholder="Type a command or search…" autocomplete="off"><kbd>Esc</kbd></div>
+      <ul class="cmdk-list" id="cmdList"></ul>
+      <div class="cmdk-foot"><span><kbd>↑</kbd><kbd>↓</kbd> Navigate</span><span><kbd>↵</kbd> Run</span></div>
+    </div>
+  </div>
+
+  <!-- Modal -->
+  <div class="modal" id="modal" role="dialog" aria-modal="true">
+    <div class="modal-box">
+      <header class="modal-head"><h3 id="modalTitle">New project</h3><button class="icon-btn sm" data-close aria-label="Close"><i data-lucide="x"></i></button></header>
+      <div class="modal-body" id="modalBody"></div>
+    </div>
+  </div>
+
+  <div class="toasts" id="toasts" aria-live="polite"></div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://unpkg.com/lucide@0.469.0/dist/umd/lucide.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

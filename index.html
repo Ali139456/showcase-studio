@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Showcase Studio — 10 Premium UI Concepts</title>
+  <meta name="description" content="A curated gallery of ten premium website and dashboard concepts built for screen recording and creative presentation.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Crect width='48' height='48' rx='10' fill='%23111111'/%3E%3Cpath d='M12 30V16l12 10 12-10v14' fill='none' stroke='%23f2f0ea' stroke-width='3.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Syne:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="gallery.css">
+</head>
+<body>
+  <div class="loader" id="loader">
+    <div class="loader-mark">SHOWCASE</div>
+    <div class="loader-bar"><span></span></div>
+  </div>
+
+  <div class="noise" aria-hidden="true"></div>
+
+  <header class="site-header">
+    <a class="brand" href="#">Showcase<span>Studio</span></a>
+    <nav class="nav">
+      <a href="#work">Work</a>
+      <a href="#about">About</a>
+    </nav>
+    <a class="pill" href="#work">Browse concepts</a>
+  </header>
+
+  <main>
+    <section class="hero" id="top">
+      <p class="eyebrow">Visual Showcase Studio · 10 Concepts</p>
+      <h1>Premium websites<br>&amp; dashboards<br><em>built to film.</em></h1>
+      <p class="lede">Ten distinct visual identities for Instagram Reels and product demos — each with working interactions, intentional motion, and production-ready frontend craft.</p>
+      <div class="hero-meta">
+        <span>HTML · CSS · JS · GSAP</span>
+        <span>Responsive</span>
+        <span>Fully interactive</span>
+      </div>
+    </section>
+
+    <section class="work" id="work">
+      <div class="section-head">
+        <h2>The collection</h2>
+        <p>Open any concept. Scroll. Interact. Record.</p>
+      </div>
+
+      <div class="grid" id="grid">
+        <!-- cards injected -->
+      </div>
+    </section>
+
+    <section class="about" id="about">
+      <div class="about-inner">
+        <h2>Made for motion.</h2>
+        <p>Every project ships with its own typography, palette, layout language, and animation style — so each Reel feels like a different brand, not a reskin of the same template.</p>
+        <ul>
+          <li>GSAP + ScrollTrigger motion systems</li>
+          <li>Working modals, carts, filters, and dashboards</li>
+          <li>High-resolution photography throughout</li>
+          <li>Responsive from desktop down to mobile</li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <a class="brand" href="#">Showcase<span>Studio</span></a>
+    <p>Open locally via any static server or double-click <code>index.html</code>.</p>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="gallery.js"></script>
+</body>
+</html>

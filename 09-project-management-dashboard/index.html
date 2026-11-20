@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Atlas — Project Command</title>
+  <meta name="description" content="Atlas is a modern project management workspace with kanban, calendar, team, and activity.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Crect width='48' height='48' rx='10' fill='%230D9488'/%3E%3Cpath d='M14 30V16l10 9 10-9v14' fill='none' stroke='%23fff' stroke-width='4' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="is-loading">
+  <div class="loader" id="loader">
+    <div class="loader-mark">Atlas</div>
+    <div class="loader-bar"><i></i></div>
+  </div>
+
+  <div class="app" id="app">
+    <div class="nav-scrim" id="navScrim" hidden></div>
+    <aside class="sidebar" id="sidebar">
+      <div class="brand">
+        <span class="brand-mark">A</span>
+        <div class="brand-text"><strong>Atlas</strong><small>Workspace</small></div>
+        <button class="icon-btn" id="collapseBtn" aria-label="Collapse sidebar"><i data-lucide="panel-left"></i></button>
+      </div>
+
+      <nav class="side-nav" aria-label="Primary">
+        <button class="nav-item is-active" data-view="board"><i data-lucide="columns-3"></i><span>Board</span></button>
+        <button class="nav-item" data-view="overview"><i data-lucide="layout-dashboard"></i><span>Overview</span></button>
+        <button class="nav-item" data-view="team"><i data-lucide="users"></i><span>Team</span></button>
+        <button class="nav-item" data-view="calendar"><i data-lucide="calendar-days"></i><span>Calendar</span></button>
+        <button class="nav-item" data-view="activity"><i data-lucide="activity"></i><span>Activity</span></button>
+      </nav>
+
+      <div class="side-block">
+        <p class="label">Projects</p>
+        <button class="proj is-active" data-project="all"><span class="dot" style="--c:#0d9488"></span><span>All projects</span></button>
+        <button class="proj" data-project="brand"><span class="dot" style="--c:#4338ca"></span><span>Brand Refresh Q4</span></button>
+        <button class="proj" data-project="mobile"><span class="dot" style="--c:#ea580c"></span><span>Mobile App v2</span></button>
+        <button class="proj" data-project="launch"><span class="dot" style="--c:#db2777"></span><span>Launch Ops</span></button>
+      </div>
+
+      <div class="side-foot">
+        <button class="nav-item" id="themeBtn"><i data-lucide="moon"></i><span>Dark mode</span></button>
+        <div class="user-chip">
+          <img src="assets/av-sofia.jpg" alt="">
+          <div class="brand-text"><strong>Sofia Chen</strong><small>Product Lead</small></div>
+        </div>
+      </div>
+    </aside>
+
+    <div class="main">
+      <header class="topbar">
+        <button class="icon-btn only-mobile" id="menuBtn" aria-label="Open menu"><i data-lucide="menu"></i></button>
+        <div class="crumbs"><span>Atlas</span><i data-lucide="chevron-right"></i><b id="crumb">Board</b></div>
+        <div class="search">
+          <i data-lucide="search"></i>
+          <input type="search" id="searchInput" placeholder="Search tasks, people, projects…" autocomplete="off">
+          <kbd>⌘K</kbd>
+        </div>
+        <div class="top-actions">
+          <select id="filterPriority" aria-label="Priority filter">
+            <option value="all">All priorities</option>
+            <option value="high">High</option>
+            <option value="med">Medium</option>
+            <option value="low">Low</option>
+          </select>
+          <select id="filterAssignee" aria-label="Assignee filter">
+            <option value="all">Everyone</option>
+          </select>
+          <button class="icon-btn" id="notifBtn" aria-label="Notifications" aria-expanded="false">
+            <i data-lucide="bell"></i><em class="badge">3</em>
+          </button>
+          <button class="btn btn-primary" id="newTaskBtn"><i data-lucide="plus"></i>New task</button>
+        </div>
+      </header>
+
+      <div class="notif-panel" id="notifPanel" hidden>
+        <div class="notif-head"><h3>Notifications</h3><button id="markRead" class="link-btn">Mark all read</button></div>
+        <ul id="notifList"></ul>
+      </div>
+
+      <div class="content" id="content">
+        <section class="welcome" id="welcome">
+          <div class="welcome-copy">
+            <p class="eyebrow" id="dateLabel"></p>
+            <h1 id="greet">Good afternoon, Sofia</h1>
+            <p class="sub">You have <strong id="dueToday">0</strong> tasks due today across active projects.</p>
+          </div>
+          <div class="kpi-row" id="kpiRow"></div>
+        </section>
+
+        <!-- BOARD -->
+        <section class="view is-on" id="view-board" data-title="Board">
+          <div class="board" id="board"></div>
+        </section>
+
+        <!-- OVERVIEW -->
+        <section class="view" id="view-overview" data-title="Overview">
+          <div class="grid-2">
+            <article class="panel">
+              <div class="panel-head"><h2>Project health</h2><span class="muted">Completion this sprint</span></div>
+              <div class="health-list" id="healthList"></div>
+            </article>
+            <article class="panel">
+              <div class="panel-head"><h2>Upcoming deadlines</h2><span class="muted">Next 7 days</span></div>
+              <div class="upcoming" id="upcoming"></div>
+            </article>
+            <article class="panel">
+              <div class="panel-head"><h2>Workload</h2><span class="muted">Open tasks by person</span></div>
+              <div class="workload" id="workload"></div>
+            </article>
+            <article class="panel">
+              <div class="panel-head"><h2>Priority mix</h2><span class="muted">Open work</span></div>
+              <div class="prio-mix" id="prioMix"></div>
+            </article>
+          </div>
+        </section>
+
+        <!-- TEAM -->
+        <section class="view" id="view-team" data-title="Team">
+          <article class="panel">
+            <div class="panel-head"><h2>Team</h2><span class="muted" id="teamCount"></span></div>
+            <div class="team-grid" id="teamGrid"></div>
+          </article>
+        </section>
+
+        <!-- CALENDAR -->
+        <section class="view" id="view-calendar" data-title="Calendar">
+          <div class="grid-cal">
+            <article class="panel">
+              <div class="panel-head">
+                <h2 id="calTitle">November 2026</h2>
+                <div class="cal-nav">
+                  <button class="icon-btn" id="calPrev" aria-label="Previous month"><i data-lucide="chevron-left"></i></button>
+                  <button class="btn btn-ghost btn-sm" id="calToday">Today</button>
+                  <button class="icon-btn" id="calNext" aria-label="Next month"><i data-lucide="chevron-right"></i></button>
+                </div>
+              </div>
+              <div class="calendar" id="calendar"></div>
+            </article>
+            <article class="panel">
+              <div class="panel-head"><h2>Day agenda</h2><span class="muted" id="agendaDate"></span></div>
+              <div class="day-agenda" id="dayAgenda"></div>
+            </article>
+          </div>
+        </section>
+
+        <!-- ACTIVITY -->
+        <section class="view" id="view-activity" data-title="Activity">
+          <article class="panel">
+            <div class="panel-head"><h2>Activity timeline</h2><span class="muted">Latest updates across projects</span></div>
+            <div class="timeline" id="timeline"></div>
+          </article>
+        </section>
+      </div>
+    </div>
+  </div>
+
+  <div class="scrim" id="scrim" hidden></div>
+  <div class="modal" id="taskModal" aria-hidden="true" role="dialog" aria-modal="true">
+    <div class="modal-panel">
+      <div class="modal-head">
+        <h2>Create task</h2>
+        <button class="icon-btn" id="modalClose" aria-label="Close"><i data-lucide="x"></i></button>
+      </div>
+      <form id="taskForm" class="task-form">
+        <label>Title<input name="title" required maxlength="120" placeholder="What needs to be done?"></label>
+        <label>Description<textarea name="desc" rows="3" placeholder="Optional context for the assignee"></textarea></label>
+        <div class="form-row">
+          <label>Project
+            <select name="project" required>
+              <option value="brand">Brand Refresh Q4</option>
+              <option value="mobile">Mobile App v2</option>
+              <option value="launch">Launch Ops</option>
+            </select>
+          </label>
+          <label>Priority
+            <select name="priority">
+              <option value="high">High</option>
+              <option value="med" selected>Medium</option>
+              <option value="low">Low</option>
+            </select>
+          </label>
+        </div>
+        <div class="form-row">
+          <label>Assignee<select name="assignee" id="assigneeSelect"></select></label>
+          <label>Column
+            <select name="column">
+              <option value="backlog">Backlog</option>
+              <option value="progress" selected>In Progress</option>
+              <option value="review">Review</option>
+              <option value="done">Done</option>
+            </select>
+          </label>
+        </div>
+        <label>Due date<input type="date" name="due" required></label>
+        <div class="form-actions">
+          <button type="button" class="btn btn-ghost" id="modalCancel">Cancel</button>
+          <button type="submit" class="btn btn-primary">Create task</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://unpkg.com/lucide@0.469.0/dist/umd/lucide.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

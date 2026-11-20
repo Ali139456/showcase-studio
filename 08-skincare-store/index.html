@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aurelia — Ritual Skincare</title>
+  <meta name="description" content="Aurelia formulates quiet, high-efficacy skincare for luminous skin. Cleanse, treat, and hydrate with botanical precision.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Crect width='48' height='48' rx='24' fill='%231A1714'/%3E%3Ccircle cx='24' cy='24' r='8' fill='none' stroke='%23C4B7A6' stroke-width='3'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="is-loading">
+  <div class="loader" id="loader" aria-hidden="true">
+    <span class="loader-word">Aurelia</span>
+    <div class="loader-line"><i></i></div>
+  </div>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <header class="header" id="header">
+    <button class="icon-btn only-mobile" id="menuBtn" aria-label="Menu"><i data-lucide="menu"></i></button>
+    <nav class="nav" aria-label="Primary">
+      <a href="#collections">Collections</a>
+      <a href="#bestsellers">Bestsellers</a>
+      <a href="#ingredients">Ingredients</a>
+      <a href="#ritual">The Ritual</a>
+    </nav>
+    <a class="logo" href="#top">Aurelia</a>
+    <div class="header-right">
+      <button class="icon-btn" id="searchBtn" aria-label="Search"><i data-lucide="search"></i></button>
+      <button class="icon-btn cart-btn" id="cartBtn" aria-label="Open cart">
+        <i data-lucide="shopping-bag"></i>
+        <em id="cartCount">0</em>
+      </button>
+    </div>
+  </header>
+
+  <div class="mnav" id="mnav" aria-hidden="true">
+    <button class="mnav-close" id="mnavClose" aria-label="Close"><i data-lucide="x"></i></button>
+    <nav>
+      <a href="#collections">Collections</a>
+      <a href="#bestsellers">Bestsellers</a>
+      <a href="#ingredients">Ingredients</a>
+      <a href="#ritual">The Ritual</a>
+      <a href="#reviews">Reviews</a>
+      <a href="#philosophy">Philosophy</a>
+    </nav>
+  </div>
+
+  <aside class="cart" id="cart" aria-hidden="true">
+    <div class="cart-head">
+      <h2>Your bag</h2>
+      <button class="icon-btn" id="cartClose" aria-label="Close cart"><i data-lucide="x"></i></button>
+    </div>
+    <div class="cart-items" id="cartItems"></div>
+    <div class="cart-foot">
+      <div class="cart-sub"><span>Subtotal</span><strong id="cartSub">$0</strong></div>
+      <p class="cart-note">Shipping calculated at checkout.</p>
+      <button class="btn btn-dark" id="checkoutBtn">Checkout</button>
+      <button class="btn btn-ghost" id="continueBtn">Continue shopping</button>
+    </div>
+  </aside>
+  <div class="scrim" id="scrim" hidden></div>
+
+  <main id="top">
+    <section class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow reveal">New · Radiance Ritual</p>
+        <h1 class="reveal">Skin that<br>glows quietly.</h1>
+        <p class="lede reveal">Botanical actives, clinical doses, and textures that feel like ritual — not routine. Formulated in small batches for luminous, calm skin.</p>
+        <div class="hero-cta reveal">
+          <a class="btn btn-dark" href="#bestsellers">Shop bestsellers</a>
+          <a class="btn btn-ghost" href="#ritual">Discover the ritual</a>
+        </div>
+        <dl class="hero-stats reveal">
+          <div><dt>98%</dt><dd>saw brighter tone in 28 days</dd></div>
+          <div><dt>0%</dt><dd>fragrance, silicones, essential oils</dd></div>
+        </dl>
+      </div>
+      <div class="hero-visual">
+        <figure class="hero-main reveal-img"><img src="assets/hero.jpg" alt="Aurelia serum on pedestal with soft leaf shadows"></figure>
+        <figure class="hero-side reveal-img"><img src="assets/hero-side.jpg" alt="Aurelia product flat lay"></figure>
+      </div>
+    </section>
+
+    <section class="marquee" aria-hidden="true">
+      <div class="marquee-track">
+        <span>Clean formulas</span><span>Clinical actives</span><span>Dermatologist tested</span><span>Refillable glass</span><span>Cruelty free</span>
+        <span>Clean formulas</span><span>Clinical actives</span><span>Dermatologist tested</span><span>Refillable glass</span><span>Cruelty free</span>
+      </div>
+    </section>
+
+    <section class="collections" id="collections">
+      <div class="section-head">
+        <p class="eyebrow">Collections</p>
+        <h2>Three steps.<br>One luminous finish.</h2>
+      </div>
+      <div class="col-grid">
+        <a class="col-card" href="#bestsellers" data-filter="cleanse">
+          <figure><img src="assets/col-cleanse.jpg" alt="Cleanse collection"></figure>
+          <div><span>01</span><h3>Cleanse</h3><p>Oil-to-milk textures that dissolve without stripping.</p></div>
+        </a>
+        <a class="col-card" href="#bestsellers" data-filter="treat">
+          <figure><img src="assets/col-treat.jpg" alt="Treat collection"></figure>
+          <div><span>02</span><h3>Treat</h3><p>Serums and essences dosed for real results.</p></div>
+        </a>
+        <a class="col-card" href="#bestsellers" data-filter="hydrate">
+          <figure><img src="assets/col-hydrate.jpg" alt="Hydrate collection"></figure>
+          <div><span>03</span><h3>Hydrate</h3><p>Barrier-first moisture that lasts past midday.</p></div>
+        </a>
+      </div>
+    </section>
+
+    <section class="bestsellers" id="bestsellers">
+      <div class="section-head row">
+        <div>
+          <p class="eyebrow">Bestsellers</p>
+          <h2>Most loved, most reordered.</h2>
+        </div>
+        <div class="filters" id="filters" role="tablist">
+          <button class="filter is-active" data-cat="all">All</button>
+          <button class="filter" data-cat="cleanse">Cleanse</button>
+          <button class="filter" data-cat="treat">Treat</button>
+          <button class="filter" data-cat="hydrate">Hydrate</button>
+        </div>
+      </div>
+      <div class="product-grid" id="productGrid"></div>
+    </section>
+
+    <section class="ritual" id="ritual">
+      <div class="ritual-copy">
+        <p class="eyebrow">Featured ritual</p>
+        <h2>The Night Restore</h2>
+        <p class="lede">A four-step evening sequence built around our Centella Barrier Serum — calm, repair, seal.</p>
+        <ul class="ritual-steps">
+          <li><strong>01</strong> Cleanse with Balm-to-Oil</li>
+          <li><strong>02</strong> Essence mist until damp</li>
+          <li><strong>03</strong> Press in Centella Serum</li>
+          <li><strong>04</strong> Seal with Night Oil</li>
+        </ul>
+        <div class="pdp-buy">
+          <div class="sizes" id="sizes">
+            <button class="size is-active" data-size="30ml" data-price="68">30ml — $68</button>
+            <button class="size" data-size="50ml" data-price="98">50ml — $98</button>
+          </div>
+          <button class="btn btn-dark" id="addRitual">Add Centella Serum to bag</button>
+        </div>
+      </div>
+      <div class="ritual-gallery">
+        <figure class="rg-a"><img src="assets/pdp-1.jpg" alt="Serum close-up"></figure>
+        <figure class="rg-b"><img src="assets/pdp-2.jpg" alt="Texture swatch"></figure>
+        <figure class="rg-c"><img src="assets/pdp-3.jpg" alt="Ritual products"></figure>
+        <figure class="rg-d"><img src="assets/pdp-4.jpg" alt="Bottle detail"></figure>
+      </div>
+    </section>
+
+    <section class="ingredients" id="ingredients">
+      <div class="section-head">
+        <p class="eyebrow">Ingredients</p>
+        <h2>Fewer formulas.<br>Better chemistry.</h2>
+      </div>
+      <div class="ing-grid">
+        <article class="ing-card">
+          <figure><img src="assets/ing-centella.jpg" alt="Centella asiatica"></figure>
+          <h3>Centella Asiatica</h3>
+          <p>Calms redness and supports barrier repair with madecassoside.</p>
+        </article>
+        <article class="ing-card">
+          <figure><img src="assets/ing-squalane.jpg" alt="Squalane oil"></figure>
+          <h3>Plant Squalane</h3>
+          <p>Lightweight lipid that mimics skin’s own sebum without clogging.</p>
+        </article>
+        <article class="ing-card">
+          <figure><img src="assets/ing-citrus.jpg" alt="Vitamin C citrus"></figure>
+          <h3>Stable Vitamin C</h3>
+          <p>Ethyl ascorbic acid for brightening without the usual sting.</p>
+        </article>
+        <article class="ing-card">
+          <figure><img src="assets/ing-botanical.jpg" alt="Botanical extracts"></figure>
+          <h3>Green Tea Polyphenols</h3>
+          <p>Antioxidant shield against daily urban oxidative stress.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="reviews" id="reviews">
+      <div class="section-head row">
+        <div>
+          <p class="eyebrow">Reviews</p>
+          <h2>From our community.</h2>
+        </div>
+        <div class="rating-pill"><strong>4.9</strong><span>based on 2,418 reviews</span></div>
+      </div>
+      <div class="review-grid" id="reviewGrid"></div>
+    </section>
+
+    <section class="philosophy" id="philosophy">
+      <div class="phil-copy">
+        <p class="eyebrow">Philosophy</p>
+        <h2>Beauty that<br>doesn’t shout.</h2>
+        <p class="lede">We believe great skin comes from consistency, not complexity. Every Aurelia formula earns its place on the shelf — or it doesn’t ship.</p>
+        <ul class="phil-list">
+          <li>Transparent full ingredient lists</li>
+          <li>Refillable glass &amp; aluminum</li>
+          <li>Third-party safety tested</li>
+        </ul>
+      </div>
+      <div class="phil-mosaic">
+        <figure><img src="assets/phil-1.jpg" alt="Studio still life"></figure>
+        <figure><img src="assets/phil-2.jpg" alt="Ingredient preparation"></figure>
+        <figure><img src="assets/phil-3.jpg" alt="Finished products"></figure>
+      </div>
+    </section>
+
+    <section class="newsletter" id="newsletter">
+      <figure class="news-img"><img src="assets/news.jpg" alt="Aurelia newsletter visual"></figure>
+      <div class="news-copy">
+        <p class="eyebrow">Newsletter</p>
+        <h2>Ritual notes,<br>twice a month.</h2>
+        <p>Early access to limited batches, ingredient deep-dives, and member-only sets.</p>
+        <form id="newsForm" class="news-form">
+          <label class="sr-only" for="email">Email</label>
+          <input id="email" type="email" placeholder="Your email" required>
+          <button class="btn btn-dark" type="submit">Subscribe</button>
+        </form>
+        <p class="news-fine" id="newsMsg">No spam. Unsubscribe anytime.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-top">
+      <a class="logo" href="#top">Aurelia</a>
+      <div class="footer-cols">
+        <div>
+          <h4>Shop</h4>
+          <a href="#bestsellers">Bestsellers</a>
+          <a href="#collections">Collections</a>
+          <a href="#ritual">Rituals</a>
+        </div>
+        <div>
+          <h4>About</h4>
+          <a href="#philosophy">Philosophy</a>
+          <a href="#ingredients">Ingredients</a>
+          <a href="#reviews">Reviews</a>
+        </div>
+        <div>
+          <h4>Help</h4>
+          <button type="button" data-toast="Shipping is complimentary on orders over $75.">Shipping</button>
+          <button type="button" data-toast="Returns accepted within 30 days of delivery.">Returns</button>
+          <button type="button" data-toast="Write us at care@aurelia.studio">Contact</button>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Aurelia Studio. All rights reserved.</p>
+      <p>Crafted for luminous skin.</p>
+    </div>
+  </footer>
+
+  <div class="modal" id="quickView" aria-hidden="true" role="dialog" aria-modal="true">
+    <div class="modal-panel">
+      <button class="icon-btn modal-close" id="qvClose" aria-label="Close"><i data-lucide="x"></i></button>
+      <div class="qv-grid">
+        <figure id="qvImg"></figure>
+        <div class="qv-copy">
+          <p class="eyebrow" id="qvCat"></p>
+          <h3 id="qvName"></h3>
+          <p id="qvDesc"></p>
+          <p class="qv-price" id="qvPrice"></p>
+          <button class="btn btn-dark" id="qvAdd">Add to bag</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://unpkg.com/lucide@0.460.0/dist/umd/lucide.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

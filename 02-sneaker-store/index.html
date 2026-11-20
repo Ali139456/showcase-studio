@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OFFCOURT — Curated Sneakers &amp; Limited Drops</title>
+  <meta name="description" content="OFFCOURT is an independent sneaker boutique stocking limited releases from Nike, Jordan, New Balance, Vans and Converse.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Crect width='48' height='48' fill='%230d0d0d'/%3E%3Ccircle cx='24' cy='24' r='11' fill='none' stroke='%23ff4321' stroke-width='6'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="loader" id="loader" aria-hidden="true">
+    <div class="loader-inner">
+      <span class="loader-word">OFFCOURT<sup>®</sup></span>
+      <span class="loader-count" id="loaderCount">000</span>
+    </div>
+    <div class="loader-wipe"></div>
+  </div>
+
+  <div class="promo" id="promo">
+    <div class="promo-track" id="promoTrack">
+      <span>Free express shipping on orders over $150</span>
+      <span>Drop 047 is live — limited pairs, one per customer</span>
+      <span>Members get 48-hour early access to every release</span>
+    </div>
+  </div>
+
+  <header class="header" id="header">
+    <a class="logo" href="#top" aria-label="OFFCOURT home">OFFCOURT<sup>®</sup></a>
+    <nav class="nav" aria-label="Primary">
+      <a href="#arrivals">New arrivals</a>
+      <a href="#shop">Shop all</a>
+      <a href="#story">Our story</a>
+      <a href="#club">The Club</a>
+    </nav>
+    <div class="header-tools">
+      <button class="tool" id="searchOpen" aria-label="Search"><i data-lucide="search"></i></button>
+      <button class="tool" id="wishOpen" aria-label="Wishlist"><i data-lucide="heart"></i><em id="wishCount" class="is-zero">0</em></button>
+      <button class="tool tool-cart" id="cartOpen" aria-label="Open cart"><span>Cart</span><em id="cartCount">0</em></button>
+      <button class="tool only-mobile" id="menuOpen" aria-label="Menu"><i data-lucide="menu"></i></button>
+    </div>
+  </header>
+
+  <main id="top">
+    <!-- HERO -->
+    <section class="hero" id="hero" data-slide="0">
+      <div class="hero-bg" id="heroBg"></div>
+      <div class="hero-media" id="heroMedia">
+        <img class="hero-img is-red is-active" src="assets/hero-red.jpg" alt="Nike Free RN Flyknit in University Red">
+        <img class="hero-img is-volt" src="assets/hero-volt.jpg" alt="Nike SuperRep Go in Volt">
+        <img class="hero-img is-blue" src="assets/hero-blue.jpg" alt="Nike Kyrie 7 in Black and White">
+      </div>
+      <div class="hero-copy">
+        <p class="hero-eyebrow"><span class="dot"></span><span id="heroEyebrow">Drop 047 — Just landed</span></p>
+        <h1 class="hero-title" id="heroTitle" aria-live="polite"></h1>
+        <div class="hero-sub">
+          <p id="heroDesc"></p>
+          <div class="hero-cta">
+            <button class="btn btn-solid" id="heroShop"><span>Shop the drop</span><i data-lucide="arrow-up-right"></i></button>
+            <button class="btn btn-line" id="heroView"><span>Quick view</span></button>
+          </div>
+        </div>
+      </div>
+      <aside class="hero-card" id="heroCard">
+        <span class="hero-card-brand" id="heroBrand">Nike</span>
+        <strong id="heroName">Free RN Flyknit</strong>
+        <span id="heroColor">University Red</span>
+        <b id="heroPrice">$140</b>
+      </aside>
+      <div class="hero-foot">
+        <ul class="hero-specs" id="heroSpecs"></ul>
+        <div class="hero-nav">
+          <button class="hero-arrow" id="heroPrev" aria-label="Previous"><i data-lucide="arrow-left"></i></button>
+          <div class="hero-dots" id="heroDots">
+            <button class="is-active" aria-label="Slide 1"><i></i></button>
+            <button aria-label="Slide 2"><i></i></button>
+            <button aria-label="Slide 3"><i></i></button>
+          </div>
+          <span class="hero-index"><b id="heroIndex">01</b> / 03</span>
+          <button class="hero-arrow" id="heroNext" aria-label="Next"><i data-lucide="arrow-right"></i></button>
+        </div>
+      </div>
+    </section>
+
+    <!-- MARQUEE -->
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee-track">
+        <span>Limited drops</span><i></i><span>Authenticity guaranteed</span><i></i><span>Free 30-day returns</span><i></i><span>Ships in 24 hours</span><i></i><span>Limited drops</span><i></i><span>Authenticity guaranteed</span><i></i><span>Free 30-day returns</span><i></i><span>Ships in 24 hours</span><i></i>
+      </div>
+    </div>
+
+    <!-- NEW ARRIVALS -->
+    <section class="section arrivals" id="arrivals">
+      <header class="section-head">
+        <div>
+          <p class="kicker">( 01 ) New arrivals</p>
+          <h2 class="display" data-split>Just landed.</h2>
+        </div>
+        <div class="rail-nav">
+          <p>Six new pairs this week. When they are gone, they are gone.</p>
+          <div>
+            <button class="round" id="railPrev" aria-label="Scroll left"><i data-lucide="arrow-left"></i></button>
+            <button class="round" id="railNext" aria-label="Scroll right"><i data-lucide="arrow-right"></i></button>
+          </div>
+        </div>
+      </header>
+      <div class="rail" id="rail"></div>
+    </section>
+
+    <!-- SHOP -->
+    <section class="section shop" id="shop">
+      <header class="section-head">
+        <div>
+          <p class="kicker">( 02 ) The floor</p>
+          <h2 class="display" data-split>Shop all.</h2>
+        </div>
+        <p class="section-note"><b id="shopCount">18</b> styles in stock</p>
+      </header>
+      <div class="filters">
+        <div class="chips" id="chips" role="tablist">
+          <button class="chip is-active" data-cat="all">All <sup></sup></button>
+          <button class="chip" data-cat="running">Running <sup></sup></button>
+          <button class="chip" data-cat="lifestyle">Lifestyle <sup></sup></button>
+          <button class="chip" data-cat="basketball">Basketball <sup></sup></button>
+          <button class="chip" data-cat="skate">Skate <sup></sup></button>
+        </div>
+        <label class="sort"><span>Sort</span>
+          <select id="sort" aria-label="Sort products">
+            <option value="featured">Featured</option>
+            <option value="new">Newest</option>
+            <option value="low">Price — low to high</option>
+            <option value="high">Price — high to low</option>
+          </select>
+          <i data-lucide="chevron-down"></i>
+        </label>
+      </div>
+      <div class="grid" id="grid"></div>
+      <div class="more"><button class="btn btn-line btn-dark" id="loadMore"><span>Load more styles</span><i data-lucide="plus"></i></button></div>
+    </section>
+
+    <!-- EDITORIAL -->
+    <section class="banner">
+      <div class="banner-media"><img src="assets/story-court.jpg" alt="Air Jordan 1 pairs resting on an outdoor basketball court" data-parallax="12"></div>
+      <div class="banner-copy">
+        <p class="kicker">Editorial — Issue 12</p>
+        <h2 class="display" data-split>Off the court.<br>On the record.</h2>
+        <p>Forty years on, the high-top still sets the pace. We pulled twelve pairs from the archive and asked the people who wear them daily what keeps them lacing up.</p>
+        <button class="btn btn-solid btn-light" data-filter-jump="basketball"><span>Shop basketball</span><i data-lucide="arrow-up-right"></i></button>
+      </div>
+    </section>
+
+    <!-- STORY -->
+    <section class="section story" id="story">
+      <div class="story-grid">
+        <div class="story-copy">
+          <p class="kicker">( 03 ) Our story</p>
+          <h2 class="display" data-split>A corner shop that never grew out of its neighbourhood.</h2>
+          <div class="story-text">
+            <p>OFFCOURT opened in 2014 as a twelve-square-metre room behind a barbershop. One wall, forty pairs, and a rule we still keep: we only stock what we would queue for ourselves.</p>
+            <p>Every pair is checked by hand, photographed in-house and shipped in recycled packaging within a day. No bots, no resellers, no back doors.</p>
+          </div>
+          <ul class="stats">
+            <li><strong data-count="11">0</strong><span>Years independent</span></li>
+            <li><strong data-count="240" data-suffix="k">0</strong><span>Pairs shipped</span></li>
+            <li><strong data-count="38">0</strong><span>Brands stocked</span></li>
+            <li><strong data-count="4.9" data-decimals="1">0</strong><span>Average rating</span></li>
+          </ul>
+        </div>
+        <div class="story-media">
+          <figure class="story-a"><img src="assets/story-street.jpg" alt="Person wearing Air Jordan 1 sneakers above a city street" data-parallax="10"></figure>
+          <figure class="story-b"><img src="assets/story-toss.jpg" alt="A grey knit sneaker tossed in the air above an open hand" data-parallax="-8"></figure>
+          <span class="story-stamp"><svg viewBox="0 0 120 120"><defs><path id="circ" d="M60 60m-46 0a46 46 0 1 1 92 0a46 46 0 1 1-92 0"/></defs><text><textPath href="#circ">CHECKED BY HAND · SHIPPED IN 24H · SINCE 2014 · </textPath></text></svg></span>
+        </div>
+      </div>
+    </section>
+
+    <!-- CLUB -->
+    <section class="club" id="club">
+      <div class="club-inner">
+        <p class="kicker">( 04 ) The Club</p>
+        <h2 class="club-title" data-split>First in line.<br>Every time.</h2>
+        <p class="club-lead">Join 86,000 members who hear about drops two days before everyone else. One email a week, never more.</p>
+        <form class="club-form" id="clubForm" novalidate>
+          <input type="email" id="clubEmail" placeholder="Email address" aria-label="Email address" autocomplete="email">
+          <button class="btn btn-solid" type="submit"><span>Join the Club</span><i data-lucide="arrow-right"></i></button>
+        </form>
+        <p class="club-msg" id="clubMsg" role="status"></p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a class="logo" href="#top">OFFCOURT<sup>®</sup></a>
+        <p>Independent sneaker boutique.<br>14 Calder Lane, Manchester M4 1HN</p>
+        <div class="socials">
+          <a href="https://www.instagram.com/" target="_blank" rel="noopener" aria-label="Instagram"><i data-lucide="instagram"></i></a>
+          <a href="https://www.tiktok.com/" target="_blank" rel="noopener" aria-label="TikTok"><i data-lucide="music-2"></i></a>
+          <a href="https://www.youtube.com/" target="_blank" rel="noopener" aria-label="YouTube"><i data-lucide="youtube"></i></a>
+        </div>
+      </div>
+      <nav aria-label="Shop"><h4>Shop</h4><a href="#arrivals">New arrivals</a><a href="#shop" data-filter-jump="running">Running</a><a href="#shop" data-filter-jump="lifestyle">Lifestyle</a><a href="#shop" data-filter-jump="basketball">Basketball</a><a href="#shop" data-filter-jump="skate">Skate</a></nav>
+      <nav aria-label="Company"><h4>Company</h4><a href="#story">Our story</a><a href="#club">The Club</a><a href="#top" data-filter-jump="all">Full catalogue</a><a href="mailto:hello@offcourt.store">Contact</a></nav>
+      <div class="footer-help"><h4>Help</h4><p>Mon–Sat, 9am–6pm GMT</p><a href="mailto:care@offcourt.store">care@offcourt.store</a><a href="tel:+441615550147">+44 161 555 0147</a><p class="pay">Visa · Mastercard · Amex · Apple Pay · Klarna</p></div>
+    </div>
+    <div class="footer-word" aria-hidden="true">OFFCOURT</div>
+    <div class="footer-bottom"><span>© 2026 OFFCOURT Supply Ltd.</span><span>Sneaker photography via Unsplash</span><a href="#top">Back to top ↑</a></div>
+  </footer>
+
+  <!-- overlays -->
+  <div class="scrim" id="scrim"></div>
+
+  <aside class="drawer" id="cart" aria-label="Shopping cart" aria-hidden="true">
+    <header class="drawer-head"><h3>Your cart <em id="cartHeadCount">(0)</em></h3><button class="round sm" data-close aria-label="Close cart"><i data-lucide="x"></i></button></header>
+    <div class="ship"><p id="shipText"></p><div class="ship-bar"><span id="shipBar"></span></div></div>
+    <div class="drawer-body" id="cartBody"></div>
+    <footer class="drawer-foot" id="cartFoot">
+      <div class="sum"><span>Subtotal</span><b id="cartTotal">$0</b></div>
+      <p>Taxes and shipping calculated at checkout.</p>
+      <button class="btn btn-solid btn-block" id="checkout"><span>Checkout</span><i data-lucide="lock"></i></button>
+    </footer>
+  </aside>
+
+  <aside class="drawer drawer-left" id="menu" aria-label="Menu" aria-hidden="true">
+    <header class="drawer-head"><h3>Menu</h3><button class="round sm" data-close aria-label="Close menu"><i data-lucide="x"></i></button></header>
+    <nav class="menu-links"><a href="#arrivals">New arrivals</a><a href="#shop">Shop all</a><a href="#story">Our story</a><a href="#club">The Club</a></nav>
+  </aside>
+
+  <div class="modal" id="quick" role="dialog" aria-modal="true" aria-label="Quick view">
+    <div class="modal-box">
+      <button class="round sm modal-x" data-close aria-label="Close"><i data-lucide="x"></i></button>
+      <div class="qv-media"><img id="qvImg" src="assets/p-free-red.jpg" alt=""><div class="qv-thumbs" id="qvThumbs"></div></div>
+      <div class="qv-info">
+        <p class="kicker" id="qvBrand"></p>
+        <h3 id="qvName"></h3>
+        <p class="qv-color" id="qvColor"></p>
+        <p class="qv-price" id="qvPrice"></p>
+        <p class="qv-desc" id="qvDesc"></p>
+        <div class="qv-size-head"><span>Select size <small>(US)</small></span><em id="qvSizeMsg"></em></div>
+        <div class="sizes" id="qvSizes"></div>
+        <div class="qv-actions">
+          <button class="btn btn-solid btn-block" id="qvAdd"><span>Add to cart</span><i data-lucide="shopping-bag"></i></button>
+          <button class="round" id="qvWish" aria-label="Save to wishlist"><i data-lucide="heart"></i></button>
+        </div>
+        <ul class="qv-notes"><li><i data-lucide="truck"></i>Ships within 24 hours</li><li><i data-lucide="rotate-ccw"></i>Free 30-day returns</li><li><i data-lucide="shield-check"></i>Authenticity guaranteed</li></ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="search" id="search" role="dialog" aria-modal="true" aria-label="Search">
+    <div class="search-box">
+      <div class="search-input"><i data-lucide="search"></i><input id="searchInput" type="text" placeholder="Search by model, brand or colourway" autocomplete="off"><button class="round sm" data-close aria-label="Close search"><i data-lucide="x"></i></button></div>
+      <p class="search-hint" id="searchHint">Popular right now</p>
+      <ul class="search-list" id="searchList"></ul>
+    </div>
+  </div>
+
+  <div class="toast" id="toast" role="status"></div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://unpkg.com/lucide@0.469.0/dist/umd/lucide.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

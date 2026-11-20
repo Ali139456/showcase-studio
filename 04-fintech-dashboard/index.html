@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Halden — Personal Banking</title>
+  <meta name="description" content="Halden is a calm, modern home for your money: balances, cards, spending analytics and transfers in one dashboard.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='9' fill='%230f3d2e'/%3E%3Cpath d='M10 9v14M22 9v14M10 16h12' stroke='%23c8f169' stroke-width='3.2' stroke-linecap='round'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="loader" id="loader" aria-hidden="true">
+    <div class="loader-mark"><svg viewBox="0 0 32 32"><path d="M10 7v18M22 7v18M10 16h12" /></svg></div>
+    <div class="loader-bar"><span></span></div>
+  </div>
+
+  <!-- Top bar -->
+  <header class="top" id="top">
+    <a class="brand" href="#" data-view="overview" aria-label="Halden home">
+      <span class="brand-mark"><svg viewBox="0 0 32 32"><path d="M10 8v16M22 8v16M10 16h12" /></svg></span>
+      <span class="brand-name">Halden</span>
+    </a>
+
+    <nav class="tabs" id="tabs" aria-label="Sections">
+      <span class="tabs-pill" id="tabsPill"></span>
+      <button class="is-active" data-view="overview">Overview</button>
+      <button data-view="transactions">Transactions</button>
+      <button data-view="cards">Cards</button>
+      <button data-view="analytics">Analytics</button>
+      <button data-view="accounts">Accounts</button>
+    </nav>
+
+    <div class="top-right">
+      <label class="search" for="globalSearch">
+        <i data-lucide="search"></i>
+        <input id="globalSearch" type="search" placeholder="Search transactions" autocomplete="off">
+        <kbd>/</kbd>
+      </label>
+      <div class="pop-wrap">
+        <button class="icon-btn" id="bellBtn" aria-label="Notifications" aria-expanded="false"><i data-lucide="bell"></i><span class="dot" id="bellDot"></span></button>
+        <div class="pop" id="bellPop">
+          <div class="pop-head"><b>Notifications</b><button id="markRead">Mark all read</button></div>
+          <ul class="notes" id="notes"></ul>
+        </div>
+      </div>
+      <div class="pop-wrap">
+        <button class="me" id="meBtn" aria-label="Account menu" aria-expanded="false"><img src="assets/av-user.jpg" alt="Arjun Mehta"><i data-lucide="chevron-down"></i></button>
+        <div class="pop pop-menu" id="mePop">
+          <div class="me-card"><img src="assets/av-user.jpg" alt=""><div><b>Arjun Mehta</b><span>Halden Black · since 2021</span></div></div>
+          <button id="privacyBtn"><i data-lucide="eye-off"></i><span>Privacy mode</span><em class="switch" id="privacySwitch"></em></button>
+          <button id="statementBtn"><i data-lucide="file-down"></i><span>Download statement</span></button>
+          <button data-goto="accounts"><i data-lucide="landmark"></i><span>Manage accounts</span></button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="page">
+    <section class="head">
+      <div>
+        <p class="head-date" id="headDate"></p>
+        <h1 id="headTitle">Good morning, Arjun</h1>
+        <p class="head-sub" id="headSub"></p>
+      </div>
+      <div class="head-actions">
+        <div class="seg" id="rangeSeg" role="tablist" aria-label="Date range">
+          <button data-range="1W">1W</button>
+          <button data-range="1M" class="is-active">1M</button>
+          <button data-range="3M">3M</button>
+          <button data-range="1Y">1Y</button>
+        </div>
+        <button class="btn btn-ghost" data-action="request"><i data-lucide="arrow-down-left"></i>Request</button>
+        <button class="btn btn-primary" data-action="send"><i data-lucide="arrow-up-right"></i>Send money</button>
+      </div>
+    </section>
+
+    <section class="grid" id="grid" data-view="overview">
+
+      <!-- Balance -->
+      <article class="panel balance" id="pBalance" data-views="overview accounts">
+        <div class="balance-top">
+          <span class="eyebrow">Total balance</span>
+          <button class="ghost-icon" id="eyeBtn" aria-label="Hide balance"><i data-lucide="eye"></i></button>
+        </div>
+        <div class="balance-num"><span class="amt" id="balanceNum">$0.00</span></div>
+        <div class="balance-meta"><span class="chip-up" id="balanceDelta"></span><span id="balanceNote"></span></div>
+        <svg class="balance-spark" id="balanceSpark" preserveAspectRatio="none" aria-hidden="true"></svg>
+        <div class="quick">
+          <button data-action="send"><span><i data-lucide="arrow-up-right"></i></span>Send</button>
+          <button data-action="request"><span><i data-lucide="arrow-down-left"></i></span>Request</button>
+          <button data-action="topup"><span><i data-lucide="plus"></i></span>Add money</button>
+          <button data-action="exchange"><span><i data-lucide="repeat-2"></i></span>Exchange</button>
+        </div>
+      </article>
+
+      <!-- Cash flow -->
+      <article class="panel flow" id="pFlow" data-views="overview analytics">
+        <header class="panel-head">
+          <div>
+            <h2>Cash flow</h2>
+            <p id="flowSub">Income against spending</p>
+          </div>
+          <div class="legend" id="flowLegend">
+            <button class="is-on" data-series="income"><i class="sw sw-in"></i>Income</button>
+            <button class="is-on" data-series="expense"><i class="sw sw-out"></i>Expenses</button>
+          </div>
+        </header>
+        <div class="flow-stats" id="flowStats"></div>
+        <div class="chart" id="flowChart">
+          <svg id="flowSvg" role="img" aria-label="Income and expenses bar chart"></svg>
+          <div class="tip" id="flowTip"></div>
+        </div>
+      </article>
+
+      <!-- Accounts -->
+      <article class="panel accounts" id="pAccounts" data-views="overview accounts">
+        <header class="panel-head">
+          <div><h2>Accounts</h2><p>Four accounts across two currencies</p></div>
+          <button class="link" data-action="topup">Add money<i data-lucide="arrow-right"></i></button>
+        </header>
+        <div class="acct-list" id="acctList"></div>
+      </article>
+
+      <!-- Cards -->
+      <article class="panel cards" id="pCards" data-views="overview cards">
+        <header class="panel-head">
+          <div><h2>Cards</h2><p id="cardSub"></p></div>
+          <div class="arrows"><button id="cardPrev" aria-label="Previous card"><i data-lucide="chevron-left"></i></button><button id="cardNext" aria-label="Next card"><i data-lucide="chevron-right"></i></button></div>
+        </header>
+        <div class="stack" id="cardStack"></div>
+        <div class="limit">
+          <div class="limit-row"><span>Monthly limit</span><b><span class="amt" id="limitSpent"></span> <i>of</i> <span id="limitMax"></span></b></div>
+          <div class="limit-bar"><span id="limitFill"></span></div>
+          <input type="range" id="limitRange" min="1000" max="10000" step="250" aria-label="Monthly spending limit">
+        </div>
+        <div class="toggles">
+          <button class="toggle" id="freezeBtn" aria-pressed="false"><i data-lucide="snowflake"></i><span>Freeze card</span><em class="switch"></em></button>
+          <button class="toggle" id="onlineBtn" aria-pressed="true"><i data-lucide="globe"></i><span>Online payments</span><em class="switch"></em></button>
+          <button class="toggle" id="revealBtn" aria-pressed="false"><i data-lucide="scan-eye"></i><span>Show card details</span><em class="switch"></em></button>
+        </div>
+      </article>
+
+      <!-- Spending -->
+      <article class="panel spend" id="pSpend" data-views="overview transactions analytics">
+        <header class="panel-head">
+          <div><h2>Spending</h2><p id="spendSub">By category</p></div>
+          <button class="link" id="spendClear" hidden>Clear filter<i data-lucide="x"></i></button>
+        </header>
+        <div class="spend-body">
+          <div class="donut">
+            <svg id="donut" viewBox="0 0 200 200" role="img" aria-label="Spending by category"></svg>
+            <div class="donut-mid"><span id="donutLabel">Total spent</span><b class="amt" id="donutValue"></b><em id="donutPct"></em></div>
+          </div>
+          <ul class="cats" id="cats"></ul>
+        </div>
+      </article>
+
+      <!-- Quick transfer -->
+      <article class="panel transfer" id="pTransfer" data-views="overview accounts">
+        <header class="panel-head">
+          <div><h2>Quick transfer</h2><p>From Everyday account</p></div>
+        </header>
+        <div class="people" id="people"></div>
+        <form class="transfer-form" id="transferForm" novalidate>
+          <label class="amount"><span>$</span><input id="transferAmount" inputmode="decimal" placeholder="0.00" autocomplete="off" aria-label="Amount"></label>
+          <div class="presets" id="presets"><button type="button" data-amt="25">$25</button><button type="button" data-amt="50">$50</button><button type="button" data-amt="100">$100</button><button type="button" data-amt="250">$250</button></div>
+          <p class="form-msg" id="transferMsg"></p>
+          <button class="btn btn-primary btn-block" type="submit"><span id="transferLabel">Send to Isla</span><i data-lucide="send"></i></button>
+        </form>
+      </article>
+
+      <!-- Transactions -->
+      <article class="panel tx" id="pTx" data-views="overview transactions cards">
+        <header class="panel-head">
+          <div><h2>Transactions</h2><p id="txSub"></p></div>
+          <div class="tx-tools">
+            <label class="mini-search"><i data-lucide="search"></i><input id="txSearch" type="search" placeholder="Merchant or category" autocomplete="off"></label>
+            <div class="seg seg-sm" id="typeSeg"><button class="is-active" data-type="all">All</button><button data-type="in">Income</button><button data-type="out">Spending</button></div>
+            <select id="catSelect" aria-label="Category"></select>
+            <button class="icon-btn" id="exportBtn" aria-label="Export CSV" title="Export CSV"><i data-lucide="download"></i></button>
+          </div>
+        </header>
+        <div class="tx-list" id="txList"></div>
+        <button class="more" id="txMore">View all transactions<i data-lucide="arrow-right"></i></button>
+      </article>
+
+      <!-- Goals -->
+      <article class="panel goals" id="pGoals" data-views="overview accounts">
+        <header class="panel-head">
+          <div><h2>Savings goals</h2><p id="goalSub"></p></div>
+        </header>
+        <div class="goal-list" id="goalList"></div>
+      </article>
+
+      <!-- Bills -->
+      <article class="panel bills" id="pBills" data-views="overview transactions cards">
+        <header class="panel-head">
+          <div><h2>Upcoming bills</h2><p id="billSub"></p></div>
+        </header>
+        <ul class="bill-list" id="billList"></ul>
+      </article>
+
+      <!-- Budgets -->
+      <article class="panel budgets" id="pBudgets" data-views="analytics">
+        <header class="panel-head">
+          <div><h2>Budgets</h2><p id="budgetSub"></p></div>
+        </header>
+        <div class="budget-list" id="budgetList"></div>
+      </article>
+
+      <!-- Insights -->
+      <article class="panel insights" id="pInsights" data-views="analytics">
+        <header class="panel-head">
+          <div><h2>Insights</h2><p>Patterns in how you spend</p></div>
+        </header>
+        <div class="week" id="weekChart"></div>
+        <ul class="insight-list" id="insightList"></ul>
+      </article>
+    </section>
+
+    <footer class="foot">
+      <span>Halden Financial, Inc. — Member FDIC. Balances shown are for demonstration.</span>
+      <span><a href="#" data-goto="overview">Overview</a><a href="#" data-goto="transactions">Transactions</a><a href="#" data-goto="analytics">Analytics</a></span>
+    </footer>
+  </main>
+
+  <!-- Modal -->
+  <div class="modal" id="modal" aria-hidden="true">
+    <div class="modal-scrim" data-close></div>
+    <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <button class="modal-x" data-close aria-label="Close"><i data-lucide="x"></i></button>
+      <div id="modalBody"></div>
+    </div>
+  </div>
+
+  <div class="toasts" id="toasts" aria-live="polite"></div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://unpkg.com/lucide@0.469.0/dist/umd/lucide.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

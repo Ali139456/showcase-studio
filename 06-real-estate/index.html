@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ardmore Estates — Homes of rare character</title>
+  <meta name="description" content="Ardmore Estates represents architecturally significant homes in Miami, New York, Dubai and Malibu.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%231c2420'/%3E%3Cpath d='M8 24 16 7l8 17M11.5 18h9' fill='none' stroke='%23b08d57' stroke-width='1.8'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="is-loading">
+
+  <div class="loader" id="loader" aria-hidden="true">
+    <div class="loader-inner">
+      <svg viewBox="0 0 48 48"><path d="M10 38 24 8l14 30M16.5 27h15" /></svg>
+      <span>Ardmore Estates</span>
+    </div>
+  </div>
+
+  <header class="header" id="header">
+    <a class="brand" href="#top" aria-label="Ardmore Estates">
+      <svg viewBox="0 0 48 48" aria-hidden="true"><path d="M10 38 24 8l14 30M16.5 27h15" /></svg>
+      <span>Ardmore<small>Estates</small></span>
+    </a>
+    <nav class="nav" aria-label="Primary">
+      <a href="#residences">Residences</a>
+      <a href="#destinations">Destinations</a>
+      <a href="#advisors">Advisors</a>
+      <a href="#stories">Client stories</a>
+    </nav>
+    <div class="header-right">
+      <a class="header-tel" href="tel:+13055550142"><i data-lucide="phone"></i>+1 305 555 0142</a>
+      <button class="saved-btn" id="savedBtn" aria-label="Saved residences"><i data-lucide="heart"></i><span id="savedCount">0</span></button>
+      <button class="btn btn-bronze btn-sm" data-open="valuation">List with us</button>
+      <button class="burger" id="burger" aria-label="Menu" aria-expanded="false"><span></span><span></span></button>
+    </div>
+  </header>
+
+  <div class="mnav" id="mnav" aria-hidden="true">
+    <nav><a href="#residences">Residences</a><a href="#destinations">Destinations</a><a href="#advisors">Advisors</a><a href="#stories">Client stories</a></nav>
+    <div><a href="tel:+13055550142">+1 305 555 0142</a><button class="btn btn-bronze" data-open="valuation">List with us</button></div>
+  </div>
+
+  <main id="top">
+    <!-- Hero -->
+    <section class="hero" id="hero">
+      <div class="hero-media"><img src="assets/hero.jpg" alt="White modernist villa with a pool at dusk" id="heroImg"></div>
+      <div class="hero-shade"></div>
+      <div class="hero-body">
+        <p class="kicker hero-kicker"><span></span>Private residential advisory · Est. 1998</p>
+        <h1 class="hero-title"><span class="ln"><span>Homes of</span></span><span class="ln"><span><em>rare</em> character.</span></span></h1>
+        <p class="hero-lede">We represent a small number of architecturally significant homes in four cities — and the people who intend to live in them well.</p>
+      </div>
+
+      <button class="hero-feature" id="heroFeature" data-prop="lucente">
+        <img src="assets/prop-lucente.jpg" alt="">
+        <span><small>Featured this week</small><b>Villa Lucente</b><em>Miami Beach · $8,450,000</em></span>
+        <i data-lucide="arrow-up-right"></i>
+      </button>
+
+      <form class="search" id="search">
+        <label><span>Destination</span>
+          <select id="sLoc"><option value="all">Anywhere</option><option>Miami</option><option>New York</option><option>Dubai</option><option>Malibu</option></select>
+        </label>
+        <label><span>Residence type</span>
+          <select id="sType"><option value="all">All types</option><option>Villa</option><option>House</option><option>Penthouse</option></select>
+        </label>
+        <label><span>Price</span>
+          <select id="sPrice"><option value="all">Any price</option><option value="0-6000000">Up to $6M</option><option value="6000000-10000000">$6M – $10M</option><option value="10000000-99000000">$10M and above</option></select>
+        </label>
+        <label><span>Bedrooms</span>
+          <select id="sBeds"><option value="0">Any</option><option value="3">3 +</option><option value="4">4 +</option><option value="5">5 +</option><option value="6">6 +</option></select>
+        </label>
+        <button class="btn btn-dark" type="submit"><i data-lucide="search"></i><span id="searchLabel">Search 12 residences</span></button>
+      </form>
+    </section>
+
+    <!-- Intro -->
+    <section class="intro">
+      <div class="wrap intro-grid">
+        <p class="kicker" data-rise><span></span>The firm</p>
+        <h2 class="intro-text" id="introText">Since 1998 we have advised on fewer homes than most firms sell in a season — because each one is visited, measured and understood before we agree to represent it.</h2>
+        <div class="stats">
+          <div data-rise><b>$<span data-count="4.2" data-dec="1">0</span>B</b><span>in lifetime sales</span></div>
+          <div data-rise><b><span data-count="380">0</span></b><span>residences placed</span></div>
+          <div data-rise><b><span data-count="27">0</span></b><span>years of practice</span></div>
+          <div data-rise><b><span data-count="94">0</span>%</b><span>sold off-market</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Featured -->
+    <section class="featured" id="featured">
+      <div class="wrap">
+        <header class="sec-head">
+          <div><p class="kicker" data-rise><span></span>The collection</p><h2 class="sec-title" data-rise>Three homes we are <em>proud</em> to present</h2></div>
+          <div class="pager" data-rise><button id="featPrev" aria-label="Previous"><i data-lucide="arrow-left"></i></button><span><b id="featIdx">01</b> / 03</span><button id="featNext" aria-label="Next"><i data-lucide="arrow-right"></i></button></div>
+        </header>
+        <div class="feat" id="feat" data-rise>
+          <div class="feat-media" id="featMedia"></div>
+          <div class="feat-info" id="featInfo"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Residences -->
+    <section class="residences" id="residences">
+      <div class="wrap">
+        <header class="sec-head">
+          <div><p class="kicker" data-rise><span></span>Residences</p><h2 class="sec-title" data-rise>Currently <em>available</em></h2></div>
+          <p class="sec-note" data-rise>Every listing is represented exclusively by Ardmore. Viewings are private and by appointment.</p>
+        </header>
+        <div class="toolbar" data-rise>
+          <div class="chips" id="typeChips"></div>
+          <div class="toolbar-right">
+            <span class="count" id="resultCount"></span>
+            <label class="sort"><span>Sort</span><select id="sort"><option value="featured">Featured</option><option value="high">Price, high to low</option><option value="low">Price, low to high</option><option value="size">Largest first</option></select></label>
+          </div>
+        </div>
+        <div class="active-filters" id="activeFilters"></div>
+        <div class="props" id="props"></div>
+      </div>
+    </section>
+
+    <!-- Destinations -->
+    <section class="destinations" id="destinations">
+      <div class="wrap">
+        <header class="sec-head">
+          <div><p class="kicker" data-rise><span></span>Destinations</p><h2 class="sec-title" data-rise>Four cities, known <em>street by street</em></h2></div>
+          <p class="sec-note" data-rise>Choose a destination to see what is available there today.</p>
+        </header>
+        <div class="dests" id="dests">
+          <button class="dest dest-a" data-loc="Miami" data-clip><img src="assets/loc-miami.jpg" alt="Miami skyline" loading="lazy"><span class="dest-body"><small>Florida</small><b>Miami</b><em><span data-loc-count="Miami"></span> residences<i data-lucide="arrow-right"></i></em></span></button>
+          <button class="dest dest-b" data-loc="New York" data-clip><img src="assets/loc-newyork.jpg" alt="New York skyline" loading="lazy"><span class="dest-body"><small>New York State</small><b>New York</b><em><span data-loc-count="New York"></span> residences<i data-lucide="arrow-right"></i></em></span></button>
+          <button class="dest dest-c" data-loc="Dubai" data-clip><img src="assets/loc-dubai.jpg" alt="Dubai skyline" loading="lazy"><span class="dest-body"><small>United Arab Emirates</small><b>Dubai</b><em><span data-loc-count="Dubai"></span> residences<i data-lucide="arrow-right"></i></em></span></button>
+          <button class="dest dest-d" data-loc="Malibu" data-clip><img src="assets/loc-malibu.jpg" alt="Malibu coastline" loading="lazy"><span class="dest-body"><small>California</small><b>Malibu</b><em><span data-loc-count="Malibu"></span> residences<i data-lucide="arrow-right"></i></em></span></button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Advisors -->
+    <section class="advisors" id="advisors">
+      <div class="wrap">
+        <header class="sec-head">
+          <div><p class="kicker" data-rise><span></span>Advisors</p><h2 class="sec-title" data-rise>One advisor, from first call <em>to keys</em></h2></div>
+          <p class="sec-note" data-rise>Our partners each represent no more than eight homes at a time.</p>
+        </header>
+        <div class="agents" id="agents"></div>
+      </div>
+    </section>
+
+    <!-- Stories -->
+    <section class="stories" id="stories">
+      <div class="wrap stories-grid">
+        <div class="stories-side">
+          <p class="kicker" data-rise><span></span>Client stories</p>
+          <div class="rating" data-rise><b>4.9</b><span><i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i><em>from 212 verified clients</em></span></div>
+          <div class="pager"><button id="storyPrev" aria-label="Previous story"><i data-lucide="arrow-left"></i></button><span><b id="storyIdx">01</b> / 03</span><button id="storyNext" aria-label="Next story"><i data-lucide="arrow-right"></i></button></div>
+        </div>
+        <div class="story" id="story" data-rise>
+          <blockquote id="storyQuote"></blockquote>
+          <div class="story-who"><img id="storyImg" src="assets/av-karen.jpg" alt=""><div><b id="storyName"></b><span id="storyMeta"></span></div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta" id="cta">
+      <div class="cta-media"><img src="assets/cta.jpg" alt="" loading="lazy" id="ctaImg"></div>
+      <div class="cta-body">
+        <p class="kicker" data-rise><span></span>For owners</p>
+        <h2 data-rise>Considering a sale? Begin with a <em>quiet conversation.</em></h2>
+        <p data-rise>A confidential valuation, prepared by a partner, within five working days.</p>
+        <button class="btn btn-light" data-open="valuation" data-rise>Request a valuation<i data-lucide="arrow-right"></i></button>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap">
+      <div class="footer-top">
+        <div class="footer-news">
+          <h3>The Ardmore Letter</h3>
+          <p>New and off-market residences, sent on the first Thursday of each month.</p>
+          <form id="newsForm" novalidate><input type="email" id="newsEmail" placeholder="Email address" aria-label="Email address" autocomplete="email"><button type="submit" aria-label="Subscribe"><i data-lucide="arrow-right"></i></button></form>
+          <p class="form-msg" id="newsMsg" role="status"></p>
+        </div>
+        <nav aria-label="Explore"><h4>Explore</h4><a href="#residences">Residences</a><a href="#featured">The collection</a><a href="#destinations">Destinations</a><a href="#advisors">Advisors</a></nav>
+        <nav aria-label="Destinations"><h4>Destinations</h4><button data-loc="Miami">Miami</button><button data-loc="New York">New York</button><button data-loc="Dubai">Dubai</button><button data-loc="Malibu">Malibu</button></nav>
+        <div class="footer-office"><h4>Head office</h4><p>1111 Lincoln Road, Suite 800<br>Miami Beach, FL 33139</p><a href="tel:+13055550142">+1 305 555 0142</a><a href="mailto:private@ardmore-estates.com">private@ardmore-estates.com</a></div>
+      </div>
+      <div class="footer-mark" aria-hidden="true">Ardmore</div>
+      <div class="footer-bottom"><span>© 2026 Ardmore Estates LLC. Licensed real estate broker.</span><span>Equal Housing Opportunity · Photography via Unsplash</span></div>
+    </div>
+  </footer>
+
+  <!-- Property modal -->
+  <div class="modal" id="propModal" aria-hidden="true">
+    <div class="modal-scrim" data-close></div>
+    <div class="sheet" role="dialog" aria-modal="true" aria-labelledby="pmTitle">
+      <button class="modal-x" data-close aria-label="Close"><i data-lucide="x"></i></button>
+      <div class="sheet-body" id="propBody"></div>
+    </div>
+  </div>
+
+  <!-- Form modal -->
+  <div class="modal" id="formModal" aria-hidden="true">
+    <div class="modal-scrim" data-close></div>
+    <div class="dialog" role="dialog" aria-modal="true">
+      <button class="modal-x" data-close aria-label="Close"><i data-lucide="x"></i></button>
+      <div id="formBody"></div>
+    </div>
+  </div>
+
+  <!-- Saved drawer -->
+  <div class="drawer-scrim" id="drawerScrim"></div>
+  <aside class="drawer" id="drawer" aria-hidden="true" aria-label="Saved residences">
+    <header><h3>Saved residences</h3><button id="drawerClose" aria-label="Close"><i data-lucide="x"></i></button></header>
+    <div class="drawer-body" id="drawerBody"></div>
+    <footer><button class="btn btn-dark btn-block" id="drawerEnquire">Enquire about saved homes</button></footer>
+  </aside>
+
+  <div class="toast" id="toast" role="status"></div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://unpkg.com/lucide@0.469.0/dist/umd/lucide.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
